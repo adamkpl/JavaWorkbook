@@ -3,7 +3,5 @@ public class application {
         String humanName = "Peter";
         String humanSurname = "Parker";
         System.out.println("Hi," + " " + humanName + " " + humanSurname + ".");
-/*        System.out.print("Hello World");*/
-
     }
 }
