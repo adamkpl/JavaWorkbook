@@ -1,18 +1,29 @@
+/* Main file with the public static void main */
+/* I will be writing my executable code here. */
+
 public class application {
     public static void main(String[] args) {
+        /* SoloLearn, lesson: Arrays, part 2/4 */
+        System.out.println("****************************************");
+        System.out.println("SoloLearn, lesson: Arrays, part 2/4");
+        System.out.println("****************************************");
+        System.out.println();
 
-        //lesson: Arrays, part 2/4
+        myArrays mySimpleArray = new myArrays(); // New instance of MyArrays class.
+        mySimpleArray.calculateTheSumOfMyArray(); // This imports and executes a "calculateTheSumOfMyArray" method from myArrays class (myArrays.java)
+        System.out.println();
 
-        // define variables
-        int [ ] myArray = {6, 42, 3, 7}; // 4 elements, last one index=3
-        int sum=0;
-
-        // open FOR loop & define new variable index
-        for(int index=0; index<myArray.length; index++) {
-            sum = sum + myArray[index];
-        }
-
-        // print result
-        System.out.println(sum); // = 58
+        /* SoloLearn, lesson: Creating Classes & Objects, part 4/13 */
+        System.out.println("****************************************");
+        System.out.println("SoloLearn, lesson: Creating Classes & Objects, part 4/13");
+        System.out.println("****************************************");
+        System.out.println();
+        animal dog = new animal();
+        System.out.println("What does the dog say?");
+        dog.bark();
+        animal cat = new animal();
+        System.out.println("What does the cat say?");
+        cat.meow();
+        System.out.println();
     }
 }
