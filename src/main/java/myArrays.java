@@ -4,7 +4,7 @@ import java.util.Arrays; // This is required in order to be able to print values
 
 public class myArrays {
 
-    void calculateTheSumOfMyArray () {
+    public void calculateTheSumOfMyArray () {
 
         // Define variables in array.
         int[] myArray = {6, 42, 3, 7}; // There are 4 elements in array; last one (7) index=3
