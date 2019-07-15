@@ -1,5 +1,4 @@
-/* Main file with the public static void main */
-/* I will be writing my executable code here. */
+/* My workbook */
 
 package com.SoloLearn;
 
