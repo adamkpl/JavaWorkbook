@@ -5,7 +5,7 @@ package com.SoloLearn;
 public class Values {
     public static void main(String[ ] args) { // This where the main executes everything.
         int x = 0; // sample variable and its value
-        addOneTo(x); // this method is invoked from the code below, and inserts a new argument (int x=5).
+        addOneTo(x); // this method is invoked from the code below, and inserts a new argument (int x=0).
         System.out.println("addOneTo in the main method = " + x); // Outputs "0"
     }
 
