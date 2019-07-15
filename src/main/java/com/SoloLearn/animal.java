@@ -1,5 +1,7 @@
 /* SoloLearn, lesson: Creating Classes & Objects, part 4/13 */
 
+package com.SoloLearn;
+
 public class animal {
     public void bark() {
         System.out.println("Woof-Woof!");
