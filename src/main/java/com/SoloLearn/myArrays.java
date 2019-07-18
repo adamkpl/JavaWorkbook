@@ -19,7 +19,7 @@ public class myArrays {
         // Print results.
         System.out.println("Entries in Array: " + myArray.length);
         System.out.println("Digits/Numbers in Array: " + Arrays.toString(myArray));
-        System.out.println("The sum: " + sum); // = 58
+        System.out.println("Sum: " + sum); // = 58
 
     }
 }
