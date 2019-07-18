@@ -5,7 +5,7 @@ class, it inherits all of the superclass' non-private variables and methods. */
 package com.SoloLearn;
 
 class Animal { // Superclass, access modifier not defined(!), recommended: public
-    protected int legs;
+    protected int legs; // protected access modifier makes the members visible only to the subclasses.
     protected String category;
     public void showDescription() { // showDescription method is public
         System.out.println("Animal properties:");
