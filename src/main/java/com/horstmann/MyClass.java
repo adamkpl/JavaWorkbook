@@ -13,7 +13,7 @@ public class MyClass {
     //3.6.5. Łańcuchy puste i łańcuchy null
     {
         if (title.length() == 0)
-            System.out.println("Error. Message was not defined. It is NULL!");
+            System.out.println("Error: title string was not defined.");
         else
             System.out.println(title);
             System.out.println("Message length: " + title.length());
