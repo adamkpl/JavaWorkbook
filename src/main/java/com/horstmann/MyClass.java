@@ -3,8 +3,6 @@
 
 package com.horstmann;
 
-import java.lang.String;
-
 public class MyClass {
 
     public static final String title = "Java. Podstawy. Wydanie X – Cay S. Horstmann";
