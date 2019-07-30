@@ -1,5 +1,7 @@
 /* SoloLearn, lesson: Classes and Objects: Static, part 11/13 */
 
+// Archived.
+
 package com.SoloLearn;
 
 public class Counter2 {

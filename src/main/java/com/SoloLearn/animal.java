@@ -1,5 +1,7 @@
 /* SoloLearn, lesson: Creating Classes & Objects, part 4/13 */
 
+// Archived.
+
 package com.SoloLearn;
 
 public class animal {

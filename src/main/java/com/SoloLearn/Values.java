@@ -1,5 +1,7 @@
 /* SoloLearn, lesson: Classes and Objects: Value & Reference Types, part 9/13 */
 
+// Archived.
+
 package com.SoloLearn;
 
 public class Values {

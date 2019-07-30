@@ -1,5 +1,7 @@
 /* My workbook */
 
+// Archived.
+
 package com.SoloLearn;
 
 public class application {
