@@ -1,17 +1,17 @@
+package com.horstmann;
+
 /* Java. Podstawy. Wydanie X – Cay S. Horstmann"
  * JAVA API: https://docs.oracle.com/javase/8/docs/api/ */
 
 /**
  * Reading & Writing contents into files
- * @version 1.1 2019-08-02
+ * @version 1.2 2019-08-06
  * @author Adam K.
  */
 
 /* 1. Ask user for an input until a single character is given.
  * 2. Save output into a .txt file.
  * 3. Read it. */
-
-package com.horstmann;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -21,6 +21,10 @@ import java.util.Scanner;
 public class InputOutput {
     public static void main(String[] args) throws IOException {
 
+        //Set global variables’ values
+        int retry = 0;
+        int retrySummary = 0;
+
         //Ask user for input
         Scanner readInput = new Scanner(System.in);
         System.out.println("Type anything: ");
@@ -29,10 +33,15 @@ public class InputOutput {
         //3.8.3. Pętle
         do
         {
+
             if (userInput.length() == 0)
             {
+
                 System.out.println("No input. Try again. " + "User input length: " + userInput.length());
                 userInput = readInput.nextLine();
+
+                retrySummary = ++retry;
+                System.out.println("Number of retries: " + retrySummary);
             }
         }
         while (userInput.length() == 0);
@@ -48,19 +57,20 @@ public class InputOutput {
         saveOutput.print(userOutput);
         saveOutput.close();
 
-        System.out.println("User's input: " + userInput + ". ");
-        System.out.println("User input length: " + userInput.length());
+        System.out.println("User's input: " + userInput);
+        System.out.println("User's input length: " + userInput.length());
+        System.out.println("Number of User's retries: " + retrySummary);
         System.out.println("Saving results into an output file.");
 
         //Read contents from a local file
-        //Scanner localTextfile = new Scanner(Paths.get("..\\out.txt"));
-        Scanner localTextfile = new Scanner(Paths.get("src\\main\\java\\com\\horstmann\\out.txt"));
+        //Scanner localTextFile = new Scanner(Paths.get("..\\out.txt"));
+        Scanner localTextFile = new Scanner(Paths.get("src\\main\\java\\com\\horstmann\\out.txt"));
 
-        if (localTextfile.hasNext())
+        if (localTextFile.hasNext())
         {
-            while (localTextfile.hasNext())
+            while (localTextFile.hasNext())
             {
-                System.out.println("Output file content: " + localTextfile.nextLine());
+                System.out.println("Output file content: " + localTextFile.nextLine());
             }
         }
         else

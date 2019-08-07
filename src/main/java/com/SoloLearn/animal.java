@@ -4,7 +4,8 @@
 
 package com.SoloLearn;
 
-public class animal {
+public class animal
+{
     public void bark() {
         System.out.println("Woof-Woof!");
     }
