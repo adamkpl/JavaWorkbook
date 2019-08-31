@@ -1,12 +1,10 @@
+package com.sololearn;
+
 /* SoloLearn, lesson: Arrays, part 2/4 */
-
-// Archived.
-
-package com.SoloLearn;
 
 import java.util.Arrays; // This is required in order to be able to print values defined in array, otherwise it will be something like '[I@3343c8b3'
 
-public class myArrays {
+public class MyArrays {
 
     public void calculateTheSumOfMyArray () {
 
@@ -22,6 +20,5 @@ public class myArrays {
         System.out.println("Entries in Array: " + myArray.length);
         System.out.println("Digits/Numbers in Array: " + Arrays.toString(myArray));
         System.out.println("Sum: " + sum); // = 58
-
     }
 }

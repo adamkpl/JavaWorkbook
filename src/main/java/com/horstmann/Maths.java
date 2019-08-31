@@ -1,5 +1,7 @@
 package com.horstmann;
 
+import java.util.Scanner;
+
 /* Java. Podstawy. Wydanie X – Cay S. Horstmann"
  * JAVA API: https://docs.oracle.com/javase/8/docs/api/ */
 
@@ -15,8 +17,6 @@ package com.horstmann;
 
 /* 4.3.2. Używanie wielu plików źródłowych
 "Wielu programistów woli jednak każdą klasę umieścić w oddzielnym pliku." */
-
-import java.util.Scanner;
 
 public class Maths
 {

@@ -1,14 +1,13 @@
 package com.javafortesters;
 
-/**
- * My First JUnit Test
- * @version 1.0
- * @author Adam K.
- * @date 2019-08-31
- */
-
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+
+/**
+ * My First JUnit Test
+ * @version 1.0 2019-08-31
+ * @author Adam K.
+ */
 
 public class MyFirstTest {
     @Test

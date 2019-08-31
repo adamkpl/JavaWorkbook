@@ -1,7 +1,9 @@
-/* SoloLearn, lesson: Classes and Objects: Getters and setters, part 7/13
-I wrote two classes here as suggested in the course for learning purposes only. Normally I should not do that. it's better to learn that 1 class=1 file. */
+package com.sololearn;
 
-package com.SoloLearn;
+/* SoloLearn, lesson: Classes and Objects: Getters and setters, part 7/13
+I wrote two classes here as suggested in the course for learning purposes only. Normally I should not do that.
+It is better to learn that 1 class=1 file. */
+
 
 public class Vehicle {
     private String color; // private = Accessible only within the declared class itself.
@@ -17,9 +19,9 @@ public class Vehicle {
     }
 }
 
-class pimpMyRide {
+class PimpMyRide {
 
-    public static void main(String[ ] args) {
+    public static void main(String[] args) {
         Vehicle v1 = new Vehicle();
         v1.setColor("Iron Man's Sexy Red");
         System.out.println("New color: " + v1.getColor());

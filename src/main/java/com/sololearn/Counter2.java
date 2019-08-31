@@ -1,11 +1,9 @@
+package com.sololearn;
+
 /* SoloLearn, lesson: Classes and Objects: Static, part 11/13 */
 
-// Archived.
-
-package com.SoloLearn;
-
 public class Counter2 {
-    public static void main(String[ ] args) {
+    public static void main(String[] args) {
 
         Counter c1 = new Counter();
         Counter c2 = new Counter();

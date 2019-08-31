@@ -1,27 +1,25 @@
+package com.sololearn;
+
 /* My workbook */
 
-// Archived.
-
-package com.SoloLearn;
-
-public class application {
+public class Workbook {
     public static void main(String[] args) {
 
         System.out.println("****************************************");
         System.out.println("SoloLearn, lesson: Arrays, part 2/4");
         System.out.println("****************************************");
 
-        myArrays mySimpleArray = new myArrays(); // New instance of MyArrays class.
+        MyArrays mySimpleArray = new MyArrays(); // New instance of MyArrays class.
         mySimpleArray.calculateTheSumOfMyArray(); // This imports and executes a "calculateTheSumOfMyArray" method from com.SoloLearn.myArrays class (com.SoloLearn.myArrays.java)
 
         System.out.println("****************************************");
         System.out.println("SoloLearn, lesson: Creating Classes & Objects, part 4/13");
         System.out.println("****************************************");
 
-        animal dog = new animal();
+        Animal dog = new Animal();
         System.out.println("What does the dog say?");
-        dog.bark() ; // Imports & executes the bark method from the com.SoloLearn.animal class
-        animal cat = new animal();
+        dog.bark(); // Imports & executes the bark method from the com.SoloLearn.animal class
+        Animal cat = new Animal();
         System.out.println("What does the cat say?");
         cat.meow(); // Imports & executes the meow method from the com.SoloLearn.animal class
 
@@ -33,6 +31,5 @@ public class application {
         System.out.println(Pi);
 
         System.out.println("*** THE END ***");
-
     }
 }

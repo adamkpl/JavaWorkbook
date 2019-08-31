@@ -1,5 +1,10 @@
 package com.horstmann;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Paths;
+import java.util.Scanner;
+
 /* Java. Podstawy. Wydanie X – Cay S. Horstmann"
  * JAVA API: https://docs.oracle.com/javase/8/docs/api/ */
 
@@ -12,11 +17,6 @@ package com.horstmann;
 /* 1. Ask user for an input until a single character is given.
  * 2. Save output into a .txt file.
  * 3. Read it. */
-
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.file.Paths;
-import java.util.Scanner;
 
 public class InputOutput {
     public static void main(String[] args) throws IOException {
@@ -77,7 +77,5 @@ public class InputOutput {
         {
             System.out.println("No content to display!");
         }
-
     }
-
 }
