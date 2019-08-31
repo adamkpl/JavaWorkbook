@@ -19,7 +19,7 @@ public class Dice
     {
         Random tossResult = new Random();
         result = tossResult.nextInt(diceSix);
-        result++; // Result annot be 0 so always +1
+        result++; // Result cannot be 0 so always +1
     }
 
     // Return results method
