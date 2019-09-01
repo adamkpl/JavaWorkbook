@@ -12,7 +12,7 @@ public class Workbook {
         MyArrays mySimpleArray = new MyArrays(); // New instance of MyArrays class.
         mySimpleArray.calculateTheSumOfMyArray(); // This imports and executes a "calculateTheSumOfMyArray" method from com.SoloLearn.myArrays class (com.SoloLearn.myArrays.java)
 
-        System.out.println("****************************************");
+        System.out.println("\n****************************************");
         System.out.println("SoloLearn, lesson: Creating Classes & Objects, part 4/13");
         System.out.println("****************************************");
 
@@ -23,13 +23,13 @@ public class Workbook {
         System.out.println("What does the cat say?");
         cat.meow(); // Imports & executes the meow method from the com.SoloLearn.animal class
 
-        System.out.println("****************************************");
+        System.out.println("\n****************************************");
         System.out.println("SoloLearn, lesson: Classes and Objects: Static, part 11/13");
         System.out.println("****************************************");
 
         final double Pi = 3.14; // Pi is now a constant. Any attempt to assign it a value will cause an error.
         System.out.println(Pi);
 
-        System.out.println("*** THE END ***");
+        System.out.println("\n*** THE END ***");
     }
 }

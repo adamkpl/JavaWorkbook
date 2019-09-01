@@ -4,7 +4,6 @@ package com.sololearn;
 I wrote two classes here as suggested in the course for learning purposes only. Normally I should not do that.
 It is better to learn that 1 class=1 file. */
 
-
 public class Vehicle {
     private String color; // private = Accessible only within the declared class itself.
 

@@ -22,9 +22,9 @@ public class Animal // A Superclass
         }
     }
 
-    class Dog extends Animal { // Subclass, inherits properties of Animal superclass; access modifier not defined
-        Dog() {
-            legs = 4;
-            category = "dog";
-        }
+class Dog extends Animal { // Subclass, inherits properties of Animal superclass; access modifier not defined
+    Dog() {
+        legs = 4;
+        category = "dog";
     }
+}

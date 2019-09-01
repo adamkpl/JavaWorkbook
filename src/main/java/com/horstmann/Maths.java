@@ -33,8 +33,8 @@ public class Maths
         System.out.println("Type second long-type digit/number: "); //todo: strings and null not allowed
         String userInput2 = readInput2.nextLine();
 
-        Long userInput1Parser = Long.parseLong(userInput1);
-        Long userInput2Parser = Long.parseLong(userInput2);
+        long userInput1Parser = Long.parseLong(userInput1);
+        long userInput2Parser = Long.parseLong(userInput2);
 
         // Arithmetic
         // Multiplication

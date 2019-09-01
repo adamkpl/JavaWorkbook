@@ -3,7 +3,7 @@ package com.horstmann;
 /* Java. Podstawy. Wydanie X – Cay S. Horstmann"
 * JAVA API: https://docs.oracle.com/javase/8/docs/api/ */
 
-public class MyClass {
+public class Strings {
 
     public static final String title = "Java. Podstawy. Wydanie X – Cay S. Horstmann";
     //public static final String title = "";
@@ -24,5 +24,4 @@ public class MyClass {
             System.out.println("Last character: " + title.substring(title.length() - 1));
         }
     }
-
 }

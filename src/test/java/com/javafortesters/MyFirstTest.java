@@ -19,6 +19,6 @@ public class MyFirstTest {
         assert throws an assertion error and our method will fail. b) If the check passes then the assert doesn’t have
         any side-effects.
         */
-        assertEquals("2+2=4", 4, result );
+        assertEquals("2+2=4", 4, result);
     }
 }
