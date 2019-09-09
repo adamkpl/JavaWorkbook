@@ -11,14 +11,14 @@ import java.util.Random;
 
 public class Dice
 {
-    public static final int diceSix = 6;
+    public static final int DICE_SIX = 6;
     private int result;
 
     // A default constructor
-    public Dice (int diceSix)
+    public Dice ()
     {
         Random tossResult = new Random();
-        result = tossResult.nextInt(diceSix);
+        result = tossResult.nextInt(DICE_SIX);
         result++; // Result cannot be 0 so always +1
     }
 

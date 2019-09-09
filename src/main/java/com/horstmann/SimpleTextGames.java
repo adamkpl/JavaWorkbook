@@ -1,5 +1,7 @@
 package com.horstmann;
 
+import static com.horstmann.Dice.DICE_SIX;
+
 /**
  * Simple Text Games
  * @version 1.0 2019-08-17
@@ -14,7 +16,7 @@ public class SimpleTextGames
 
         //Game #1: roll a dice (once)
         System.out.println("\nGame #1: Roll a dice");
-        Dice dice = new Dice(Dice.diceSix);
+        Dice dice = new Dice();
         System.out.println("Alea iacta est! Result: " + dice.getDiceTossResult());
     }
 }
