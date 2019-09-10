@@ -7,6 +7,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import static junit.framework.TestCase.assertTrue;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,7 +18,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 /**
  * Add 1 item to the cart and verify
  *
- * @version Beta 0.5 2019-09-09
+ * @since Beta 0.6 2019-09-10
  * @author Adam K.
  * @see <a href="https://github.com/bonigarcia/webdrivermanager-examples/blob/master/src/test/java/io/github/bonigarcia/wdm/test/ChromeTest.java">ChromeTest.java</a>
  */
@@ -34,6 +35,9 @@ public class AddProductToCardTest {
     @Before
     public void setupTest() {
         driver = new ChromeDriver();
+
+        //Resize browser window - Maximize it
+        driver.manage().window().maximize();
     }
 
     @After
@@ -46,51 +50,40 @@ public class AddProductToCardTest {
     @Test
     public void testIfAddToCartButtonAddsAProductToCart() throws InterruptedException {
 
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+        WebDriverWait wait = new WebDriverWait(driver, 30);
 
-        //Resize browser window - Maximize it
-        driver.manage().window().maximize();
-
-        //todo Open URL - Cart. Verify if empty.
-        //http://automationpractice.com/index.php?controller=order
+        //Open URL - Cart. Verify if empty.
+        driver.get("http://automationpractice.com/index.php?controller=order");
+        By cartIsEmpty = By.cssSelector(".alert-warning"); //"Your shopping cart is empty." todo make it better, there can be different warning messages, and this one can be one of many
+        wait.until(presenceOfElementLocated(cartIsEmpty));
+        driver.findElement(cartIsEmpty);
+        assertTrue("Step1. Shopping cart was empty.",driver.findElement(cartIsEmpty).isDisplayed());
 
         //Open URL - Product Page
         driver.get("http://automationpractice.com/index.php?id_product=7&controller=product");
 
-        //Locate Add to cart button on the product page
+        //Locate Add to cart button on the product page and click it
         By addToCardButton = By.id("add_to_cart");
         wait.until(presenceOfElementLocated(addToCardButton));
         wait.until(elementToBeClickable(addToCardButton));
-
-        //Locate Add to cart button and click it
         driver.findElement(addToCardButton).click();
-
-        //Wait
-        Thread.sleep(1500);
 
         //Look for a pop-up window confirmation "Product successfully added to your shopping cart"
         By productSuccessfullyAddedToCart = By.id("layer_cart");
-        driver.findElement(productSuccessfullyAddedToCart);
         wait.until(presenceOfElementLocated(productSuccessfullyAddedToCart));
+        driver.findElement(productSuccessfullyAddedToCart);
 
         //Find Proceed to checkout button, and click it
         By proceedToCheckoutButton = By.linkText("Proceed to checkout");
-        driver.findElement(proceedToCheckoutButton);
         wait.until(presenceOfElementLocated(proceedToCheckoutButton));
         wait.until(elementToBeClickable(proceedToCheckoutButton));
         driver.findElement(proceedToCheckoutButton).click();
 
-        //Wait
-        Thread.sleep(1500);
-
-        //In Cart. Cart is filled with products
+        //Cart. Cart is NOT empty
         By shoppingCartContainsXProducts = By.id("summary_products_quantity");
-        driver.findElement(shoppingCartContainsXProducts);
         wait.until(presenceOfElementLocated(shoppingCartContainsXProducts));
-
-        if (wait.until(presenceOfElementLocated(shoppingCartContainsXProducts)) != null) {
-            System.out.println("OK");
-        }
+        driver.findElement(shoppingCartContainsXProducts);
+        assertTrue("Step2. Shopping cart is NOT empty.",driver.findElement(shoppingCartContainsXProducts).isDisplayed());
 
         //todo In Cart. Correct product was added to cart
         //
