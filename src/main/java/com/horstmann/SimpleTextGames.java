@@ -1,7 +1,5 @@
 package com.horstmann;
 
-import static com.horstmann.Dice.DICE_SIX;
-
 /**
  * Simple Text Games
  * @version 1.0 2019-08-17

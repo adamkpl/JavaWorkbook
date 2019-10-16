@@ -34,6 +34,10 @@ public class CreateAccountWithIncorrectEmailAddressTest {
     @Before
     public void setupTest() {
         driver = new ChromeDriver();
+        //Resize browser window - Maximize it
+        driver.manage().window().maximize();
+        //Open URL
+        driver.get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
     }
 
     @After
@@ -47,12 +51,6 @@ public class CreateAccountWithIncorrectEmailAddressTest {
     public void testIfAccountCanBeCreatedForAnIncorrectEmailAddress() {
 
         WebDriverWait wait = new WebDriverWait(driver, 15);
-
-        //Resize browser window - Maximize it
-        driver.manage().window().maximize();
-
-        //Open URL
-        driver.get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
 
         //Look for CREATE AN ACCOUNT form
         By emailInput = By.id("email_create");

@@ -15,6 +15,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+import java.util.List;
+
 /**
  * Create an account using an invalid email address
  *
@@ -34,6 +36,10 @@ public class CreateAccountWithAnEmailAddressThatAlreadyExistsInDatabaseTest {
     @Before
     public void setupTest() {
         driver = new ChromeDriver();
+        //Resize browser window - Maximize it
+        driver.manage().window().maximize();
+        //Open URL
+        driver.get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
     }
 
     @After
@@ -47,12 +53,6 @@ public class CreateAccountWithAnEmailAddressThatAlreadyExistsInDatabaseTest {
     public void testIfAccountCanBeCreatedWhenEmailAlreadyExistsInDatabase() {
 
         WebDriverWait wait = new WebDriverWait(driver, 15);
-
-        //Resize browser window - Maximize it
-        driver.manage().window().maximize();
-
-        //Open URL
-        driver.get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
 
         //Look for CREATE AN ACCOUNT form
         By emailInput = By.id("email_create");
