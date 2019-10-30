@@ -1,4 +1,4 @@
-package com.automationpractice;
+package com.automationpractice.tests;
 
 import org.junit.After;
 import org.junit.Before;
