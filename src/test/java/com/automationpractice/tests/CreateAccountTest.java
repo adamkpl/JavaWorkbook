@@ -1,13 +1,10 @@
 package com.automationpractice.tests;
 
-import com.automationpractice.pageObjects.components.LoginForm;
-import com.automationpractice.pageObjects.components.NavigationBar;
 import com.automationpractice.pageObjects.pages.MainPage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static junit.framework.TestCase.assertTrue;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -23,8 +20,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class CreateAccountTest {
 
-    private WebDriver driver;
-    MainPage mainPage = new MainPage(driver); // null
+    private static WebDriver driver; //must be static otherwise below will be null
+    MainPage mainPage = new MainPage(driver); // null if above is static
 
     @BeforeClass
     public static void setupClass() {
@@ -52,7 +49,6 @@ public class CreateAccountTest {
         mainPage.navigateToMainPage().
                 selectSignInLinkInNavigationBar().
                 selectSignInLink();
-
 
     }
 }

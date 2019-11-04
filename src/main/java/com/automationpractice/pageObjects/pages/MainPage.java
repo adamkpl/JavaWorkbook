@@ -10,7 +10,7 @@ public class MainPage extends AbstractPageObject {
 
     public MainPage(WebDriver driver) {
         super(driver);
-        this.navigationBar = new NavigationBar(driver); //why? why here?
+        this.navigationBar = new NavigationBar(driver);
     }
 
     public MainPage navigateToMainPage() {
