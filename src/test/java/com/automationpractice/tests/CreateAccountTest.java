@@ -17,14 +17,14 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 /**
  * Register Account
  *
- * @since Beta 0.1 2019-10-26
+ * @since Alpha 0.1 2019-10-26
  * @author Adam K.
  */
 
 public class CreateAccountTest {
 
     private WebDriver driver;
-    MainPage mainPage = new MainPage(driver);
+    MainPage mainPage = new MainPage(driver); // null
 
     @BeforeClass
     public static void setupClass() {

@@ -15,12 +15,11 @@ public class MainPage extends AbstractPageObject {
 
     public MainPage navigateToMainPage() {
         getDriver().manage().window().maximize();
-        getDriver().get(Url.url);
+        getDriver().get(Url.HTTP_AUTOMATIONPRACTICE_COM);
         return this;
     }
 
     public NavigationBar selectSignInLinkInNavigationBar() {
-        System.out.println(navigationBar);
         return navigationBar;
     }
 
