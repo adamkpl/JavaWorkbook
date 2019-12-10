@@ -26,12 +26,12 @@ public class CreateAccountTest {
     @BeforeClass
     public static void setupClass() {
         WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
     }
 
     @Before
     public void setupTest() {
-        driver = new ChromeDriver();
-
+        //
     }
 
     @After
@@ -45,10 +45,14 @@ public class CreateAccountTest {
     public void testIfCanRegisterAccount() throws InterruptedException {
 
         //todo navigate to Account Sign In page and register an account
+        //todo correct naming
 
-        mainPage.navigateToMainPage().
-                selectSignInLinkInNavigationBar().
-                selectSignInLink();
+        mainPage.
+                navigateToMainPage().
+                selectSignInLink().
+                clickSignInLink().
+                selectEmailFormAndTypeUserEmailAddress().
+                selectEmailFormAndTypeUserEmailAddress();
 
     }
 }

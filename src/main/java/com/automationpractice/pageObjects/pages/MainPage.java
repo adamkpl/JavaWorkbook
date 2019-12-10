@@ -19,7 +19,7 @@ public class MainPage extends AbstractPageObject {
         return this;
     }
 
-    public NavigationBar selectSignInLinkInNavigationBar() {
+    public NavigationBar selectSignInLink() {
         return navigationBar;
     }
 

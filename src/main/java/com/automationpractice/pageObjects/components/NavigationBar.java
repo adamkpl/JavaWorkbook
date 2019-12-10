@@ -16,10 +16,9 @@ public class NavigationBar extends AbstractPageObject {
         super(driver);
     }
 
-    public AccountSignInPage selectSignInLink() {
+    public AccountSignInPage clickSignInLink() {
         WaitWrapper.waitForElement(getDriver(),10,signInLink);
         signInLink.click();
-        //After click, the method should return a new object of a next page the rest of the test will be operated on
         return new AccountSignInPage(getDriver());
     }
 
