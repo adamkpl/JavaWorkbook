@@ -4,11 +4,9 @@ import com.automationpractice.pageObjects.pages.AbstractPageObject;
 import com.automationpractice.pageObjects.pages.AccountSignInPage;
 import com.automationpractice.pageObjects.utils.User;
 import com.automationpractice.pageObjects.utils.WaitWrapper;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
 
 public class RegisterAccountForm extends AbstractPageObject {
 
@@ -26,6 +24,7 @@ public class RegisterAccountForm extends AbstractPageObject {
     private WebElement lastName;
     @FindBy(id = "passwd")
     private WebElement password;
+    //todo dropdown menus for DoB
     @FindBy(id = "days")
     private WebElement dobDay;
     @FindBy(id = "months")
@@ -58,27 +57,26 @@ public class RegisterAccountForm extends AbstractPageObject {
     private WebElement registerButton;
 
     //todo translate the entire form page into FindBy, WebElement fields-elements
-    //todo methods get-set
+    //todo dropdown menus for certain WebElements
     //todo correct naming
 
     public RegisterAccountForm(WebDriver driver) {
         super(driver);
     }
-
-    //move this method to AccountSignInPage class?
+    
     public AccountSignInPage registerAccount() {
         WaitWrapper.waitForElement(getDriver(),10,emailAddressField);
         emailAddressField.sendKeys(User.EMAIL);
         //emailAddressField.click();
         createAnAccountButton.click();
 
-        WaitWrapper.waitForElement(getDriver(),15,gender_male);
+        WaitWrapper.waitForElement(getDriver(),10,gender_male);
         gender_male.click();
         firstName.sendKeys("FirstName");
         lastName.sendKeys("FirstName");
         password.sendKeys("asdfQWERTY!@");
-/*
-        dobDay.;
+
+/*      dobDay.getFirstSelectedOption();
         dobMonth.;
         dobYear.;
 */

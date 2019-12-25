@@ -12,9 +12,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
- * Register Account
+ * Register Account Test
  *
- * @since Alpha 0.1 2019-10-26
+ * @since Alpha 0.2 2019-12-25
  * @author Adam K.
  */
 
@@ -45,7 +45,7 @@ public class CreateAccountTest {
     public void testIfCanRegisterAccount() throws InterruptedException {
 
         //todo navigate to Account Sign In page and register an account
-        //todo correct naming
+        //todo Asert
 
         mainPage.
                 navigateToMainPage().
