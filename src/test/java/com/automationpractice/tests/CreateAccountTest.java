@@ -52,7 +52,7 @@ public class CreateAccountTest {
                 selectSignInLink().
                 clickSignInLink().
                 selectEmailFormAndTypeUserEmailAddress().
-                selectEmailFormAndTypeUserEmailAddress();
+                registerAccount();
 
     }
 }
