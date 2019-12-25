@@ -24,7 +24,6 @@ public class RegisterAccountForm extends AbstractPageObject {
     private WebElement lastName;
     @FindBy(id = "passwd")
     private WebElement password;
-    //todo dropdown menus for DoB
     @FindBy(id = "days")
     private WebElement dobDay;
     @FindBy(id = "months")
@@ -56,43 +55,37 @@ public class RegisterAccountForm extends AbstractPageObject {
     @FindBy(id = "submitAccount")
     private WebElement registerButton;
 
-    //todo translate the entire form page into FindBy, WebElement fields-elements
-    //todo dropdown menus for certain WebElements
-    //todo correct naming
+    //todo Dropdown menus for certain WebElements (Select class)
+    //todo Low. Correct naming
 
     public RegisterAccountForm(WebDriver driver) {
         super(driver);
     }
-    
+
     public AccountSignInPage registerAccount() {
+        //todo better implementation with User data
+
         WaitWrapper.waitForElement(getDriver(),10,emailAddressField);
-        emailAddressField.sendKeys(User.EMAIL);
-        //emailAddressField.click();
+        emailAddressField.sendKeys(User.email[1]);
         createAnAccountButton.click();
 
         WaitWrapper.waitForElement(getDriver(),10,gender_male);
         gender_male.click();
-        firstName.sendKeys("FirstName");
-        lastName.sendKeys("FirstName");
-        password.sendKeys("asdfQWERTY!@");
-
+        firstName.sendKeys(User.firstNameGeneric[0]);
+        lastName.sendKeys(User.lastNameGeneric[0]);
+        password.sendKeys(User.password[0]);
 /*      dobDay.getFirstSelectedOption();
         dobMonth.;
-        dobYear.;
-*/
-        address.sendKeys("Streetname");
-        city.sendKeys("Cityname");
-
+        dobYear.;*/
+        address.sendKeys(User.street[0]);
+        city.sendKeys(User.city[0]);
 //      state.
-
-        postcode.sendKeys("00000");
-
+        postcode.sendKeys(User.zipPostcode[0]);
 //      country.
-
 //      phone_mobile.
-
         alias.sendKeys("Home");
 
+        registerButton.click();
         return new AccountSignInPage(getDriver());
     }
 

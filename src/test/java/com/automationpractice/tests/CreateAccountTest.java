@@ -45,7 +45,7 @@ public class CreateAccountTest {
     public void testIfCanRegisterAccount() throws InterruptedException {
 
         //todo navigate to Account Sign In page and register an account
-        //todo Asert
+        //todo Asert - final page Welcome to your account.
 
         mainPage.
                 navigateToMainPage().
