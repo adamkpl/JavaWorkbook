@@ -1,6 +1,6 @@
 package com.sololearn;
 
-/* SoloLearn, lesson: Classes and Objects: Value & Reference Types, part 9/13 */
+/* 07.2019. SoloLearn, lesson: Classes and Objects: Value & Reference Types, part 9/13 */
 
 public class Values {
     public static void main(String[] args) { // This where the main executes everything.

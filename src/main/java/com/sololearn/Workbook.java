@@ -1,6 +1,6 @@
 package com.sololearn;
 
-/* My workbook */
+/* 06.2019. My workbook. My first JAVA code. */
 
 public class Workbook {
     public static void main(String[] args) {

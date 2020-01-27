@@ -2,7 +2,7 @@ package com.sololearn;
 
 import java.util.Arrays; // This is required in order to be able to print values defined in array, otherwise it will be something like '[I@3343c8b3'
 
-/* SoloLearn, lesson: Arrays, part 2/4 */
+/* 06.2019. SoloLearn, lesson: Arrays, part 2/4 */
 
 public class MyArrays {
 

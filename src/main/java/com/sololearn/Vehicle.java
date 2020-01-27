@@ -1,6 +1,6 @@
 package com.sololearn;
 
-/* SoloLearn, lesson: Classes and Objects: Getters and setters, part 7/13
+/* 07.2019. SoloLearn, lesson: Classes and Objects: Getters and setters, part 7/13
 I wrote two classes here as suggested in the course for learning purposes only. Normally I should not do that.
 It is better to learn that 1 class=1 file. */
 

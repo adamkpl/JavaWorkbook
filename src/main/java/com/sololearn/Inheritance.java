@@ -1,6 +1,6 @@
 package com.sololearn;
 
-/* SoloLearn, lesson: More on Classes: Inheritance, part 2/13. Access modifiers
+/* 06.2019. SoloLearn, lesson: More on Classes: Inheritance, part 2/13. Access modifiers
 left as is. Some of the code was modified. When one class is inherited from another
 class, it inherits all of the superclass' non-private variables and methods. */
 

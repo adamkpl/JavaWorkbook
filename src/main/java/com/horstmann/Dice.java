@@ -6,7 +6,6 @@ import java.util.Random;
  * @version 1.0 2019-08-17
  * @author Adam K.
  * @see <a href="https://en.wikipedia.org/wiki/Dice#Construction">Dice</a>
- * @param diceSix A six-sided standard dice with digits from 1 to 6.
  */
 
 public class Dice
