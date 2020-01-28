@@ -4,9 +4,13 @@ import com.automationpractice.pageObjects.pages.AbstractPageObject;
 import com.automationpractice.pageObjects.pages.AccountSignInPage;
 import com.automationpractice.pageObjects.utils.User;
 import com.automationpractice.pageObjects.utils.WaitWrapper;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
+
+import static org.junit.Assert.assertFalse;
 
 public class RegisterAccountForm extends AbstractPageObject {
 
@@ -25,11 +29,11 @@ public class RegisterAccountForm extends AbstractPageObject {
     @FindBy(id = "passwd")
     private WebElement password;
     @FindBy(id = "days")
-    private WebElement dobDay;
+    private Select dobDay;
     @FindBy(id = "months")
-    private WebElement dobMonth;
+    private Select dobMonth;
     @FindBy(id = "years")
-    private WebElement dobYear;
+    private Select dobYear;
 
     // YOUR ADDRESS
 
@@ -38,11 +42,11 @@ public class RegisterAccountForm extends AbstractPageObject {
     @FindBy(id = "city")
     private WebElement city;
     @FindBy(id = "id_state")
-    private WebElement state;
+    private Select state;
     @FindBy(id = "postcode")
     private WebElement postcode;
     @FindBy(id = "id_country")
-    private WebElement country;
+    private Select country;
     @FindBy(id = "phone_mobile")
     private WebElement phone_mobile;
     @FindBy(id = "alias")
@@ -55,6 +59,9 @@ public class RegisterAccountForm extends AbstractPageObject {
     @FindBy(id = "submitAccount")
     private WebElement registerButton;
 
+    @FindBy(id = "fake")
+    private WebElement fake;
+
     //todo Dropdown menus for certain WebElements (Select class)
     //todo Low. Correct naming
 
@@ -63,10 +70,10 @@ public class RegisterAccountForm extends AbstractPageObject {
     }
 
     public AccountSignInPage registerAccount() {
-        //todo better implementation with User data
+        //todo Better implementation for User data (User class)
 
         WaitWrapper.waitForElement(getDriver(),10,emailAddressField);
-        emailAddressField.sendKeys(User.email[1]);
+        emailAddressField.sendKeys(User.email[2]);
         createAnAccountButton.click();
 
         WaitWrapper.waitForElement(getDriver(),10,gender_male);
@@ -74,18 +81,34 @@ public class RegisterAccountForm extends AbstractPageObject {
         firstName.sendKeys(User.firstNameGeneric[0]);
         lastName.sendKeys(User.lastNameGeneric[0]);
         password.sendKeys(User.password[0]);
-/*      dobDay.getFirstSelectedOption();
-        dobMonth.;
-        dobYear.;*/
+
+        //todo Smarter method of writing these Selects
+        dobDay = new Select(getDriver().findElement(By.id("days")));
+            assertFalse(dobDay.isMultiple());
+        dobDay.selectByIndex(1);
+        dobMonth = new Select(getDriver().findElement(By.id("months")));
+            assertFalse(dobMonth.isMultiple());
+        dobMonth.selectByIndex(1);
+        dobYear = new Select(getDriver().findElement(By.id("years")));
+            assertFalse(dobYear.isMultiple());
+        dobYear.selectByIndex(30);
         address.sendKeys(User.street[0]);
         city.sendKeys(User.city[0]);
-//      state.
-        postcode.sendKeys(User.zipPostcode[0]);
-//      country.
-//      phone_mobile.
+        state = new Select(getDriver().findElement(By.id("id_state")));
+            assertFalse(state.isMultiple());
+        state.selectByIndex(1);
+        postcode.sendKeys(User.zipPostcode[1]);
+        country = new Select(getDriver().findElement(By.id("id_country")));
+            assertFalse(country.isMultiple());
+        country.selectByIndex(1);
+        phone_mobile.sendKeys(User.phoneNumber[0]);
+        alias.clear();
         alias.sendKeys("Home");
 
+        //WaitWrapper added on purpose to stop the execution of code
+        WaitWrapper.waitForElement(getDriver(),30,fake);
         registerButton.click();
+
         return new AccountSignInPage(getDriver());
     }
 

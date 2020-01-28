@@ -1,10 +1,7 @@
 package com.automationpractice.tests;
 
 import com.automationpractice.pageObjects.pages.MainPage;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,7 +11,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 /**
  * Register Account Test
  *
- * @since Alpha 0.2 2019-12-25
+ * @since Alpha 0.3 2020-01-28
  * @author Adam K.
  */
 
@@ -45,7 +42,7 @@ public class CreateAccountTest {
     public void testIfCanRegisterAccount() throws InterruptedException {
 
         //todo navigate to Account Sign In page and register an account
-        //todo Asert - final page Welcome to your account.
+        //todo Assert - final page Welcome to your account.
 
         mainPage.
                 navigateToMainPage().
@@ -54,5 +51,6 @@ public class CreateAccountTest {
                 selectEmailFormAndTypeUserEmailAddress().
                 registerAccount();
 
+        //Assert
     }
 }

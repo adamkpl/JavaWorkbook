@@ -4,7 +4,7 @@ public class User {
 
     //todo Rethink a good data pool. Enums?
 
-    public static String[] email = {"a@a.pl","unique_address@yopmail.com"};
+    public static String[] email = {"a@a.pl","unique_address@yopmail.com","unique_address0001@yopmail.com"};
     public static String[] genderName = {"Female","Male"};
     public static String[] genderNameOneCharacter = {"F","M"};
     public static String[] genderNamePersonalTitle = {"Mrs","Mr"};
