@@ -65,6 +65,7 @@ public class RegisterAccountForm extends AbstractPageObject {
 
     public AccountSignInPage registerAccount() {
         //todo Better implementation for User data. Enums?
+        //todo get and set in the Test procedure, not here
 
         WaitWrapper.waitForElement(getDriver(),10,emailAddressField);
         emailAddressField.sendKeys(User.email[2]);
@@ -97,7 +98,7 @@ public class RegisterAccountForm extends AbstractPageObject {
         country.selectByIndex(1);
         phone_mobile.sendKeys(User.phoneNumber[0]);
         alias.clear();
-        alias.sendKeys("Home");
+        alias.sendKeys(User.aliasDeliveryAddress[0]);
         registerButton.click();
         return new AccountSignInPage(getDriver());
     }

@@ -5,7 +5,7 @@ public class User {
     //todo Rethink a good data pool.
     //todo Regex for the email address. After succesfull account registration the next test run will fail
 
-    public static String[] email = {"a@a.pl","unique_address0001@yopmail.com","unique_address0005@yopmail.com"};
+    public static String[] email = {"a@a.pl","unique_address0001@yopmail.com","unique_address0006@yopmail.com"};
     public static String[] genderName = {"Female","Male"};
     public static String[] genderNameOneCharacter = {"F","M"};
     public static String[] genderNamePersonalTitle = {"Mrs","Mr"};
