@@ -1,6 +1,8 @@
 package com.automationpractice.tests;
 
+import com.automationpractice.pageObjects.pages.AccountSignInPage;
 import com.automationpractice.pageObjects.pages.MainPage;
+import com.automationpractice.pageObjects.pages.MyAccount;
 import org.junit.*;
 
 import org.openqa.selenium.WebDriver;
@@ -11,14 +13,17 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 /**
  * Register Account Test
  *
- * @since Alpha 0.3 2020-01-28
+ * @since Alpha 0.4 2020-02-01
  * @author Adam K.
  */
 
 public class CreateAccountTest {
 
-    private static WebDriver driver; //must be static otherwise below will be null
-    MainPage mainPage = new MainPage(driver); // null if above is static
+    private static WebDriver driver;
+
+    MainPage mainPage = new MainPage(driver);
+    AccountSignInPage accountSignInPage = new AccountSignInPage(driver);
+    MyAccount myAccount = new MyAccount(driver);
 
     @BeforeClass
     public static void setupClass() {
@@ -28,7 +33,8 @@ public class CreateAccountTest {
 
     @Before
     public void setupTest() {
-        //
+        //Given
+        navigateToAccountSignInPage();
     }
 
     @After
@@ -41,16 +47,22 @@ public class CreateAccountTest {
     @Test
     public void testIfCanRegisterAccount() throws InterruptedException {
 
-        //todo navigate to Account Sign In page and register an account
-        //todo Assert - final page Welcome to your account.
-
-        mainPage.
-                navigateToMainPage().
-                selectSignInLink().
-                clickSignInLink().
+        //When
+        accountSignInPage.
                 selectEmailFormAndTypeUserEmailAddress().
                 registerAccount();
 
-        //Assert
+        //Then
+        myAccount.
+                getAndAssertWelcomeMessage();
+
     }
+
+    private void navigateToAccountSignInPage(){
+        mainPage.
+                navigateToMainPage().
+                selectSignInLink().
+                clickSignInLink();
+    }
+
 }

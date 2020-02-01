@@ -20,7 +20,6 @@ public abstract class AbstractPageObject {
         PageFactory.initElements(driver,this);
     }
 
-    //Method
     public WebDriver getDriver() {
         return driver;
     }

@@ -29,11 +29,11 @@ public class RegisterAccountForm extends AbstractPageObject {
     @FindBy(id = "passwd")
     private WebElement password;
     @FindBy(id = "days")
-    private Select dobDay;
+    private Select dobDay; //local var below
     @FindBy(id = "months")
-    private Select dobMonth;
+    private Select dobMonth; //local var below
     @FindBy(id = "years")
-    private Select dobYear;
+    private Select dobYear; //local var below
 
     // YOUR ADDRESS
 
@@ -42,11 +42,11 @@ public class RegisterAccountForm extends AbstractPageObject {
     @FindBy(id = "city")
     private WebElement city;
     @FindBy(id = "id_state")
-    private Select state;
+    private Select state; //local var below
     @FindBy(id = "postcode")
     private WebElement postcode;
     @FindBy(id = "id_country")
-    private Select country;
+    private Select country; //local var below
     @FindBy(id = "phone_mobile")
     private WebElement phone_mobile;
     @FindBy(id = "alias")
@@ -59,18 +59,12 @@ public class RegisterAccountForm extends AbstractPageObject {
     @FindBy(id = "submitAccount")
     private WebElement registerButton;
 
-    @FindBy(id = "fake")
-    private WebElement fake;
-
-    //todo Dropdown menus for certain WebElements (Select class)
-    //todo Low. Correct naming
-
     public RegisterAccountForm(WebDriver driver) {
         super(driver);
     }
 
     public AccountSignInPage registerAccount() {
-        //todo Better implementation for User data (User class)
+        //todo Better implementation for User data. Enums?
 
         WaitWrapper.waitForElement(getDriver(),10,emailAddressField);
         emailAddressField.sendKeys(User.email[2]);
@@ -104,11 +98,7 @@ public class RegisterAccountForm extends AbstractPageObject {
         phone_mobile.sendKeys(User.phoneNumber[0]);
         alias.clear();
         alias.sendKeys("Home");
-
-        //WaitWrapper added on purpose to stop the execution of code
-        WaitWrapper.waitForElement(getDriver(),30,fake);
         registerButton.click();
-
         return new AccountSignInPage(getDriver());
     }
 
