@@ -52,8 +52,8 @@ public class CreateAccountTest {
                 createAnAccount().
                     selectCreateNewAccountEmailAddressField().
                     setNewAccountEmailAddress("abc005@a.pl").
-                    clickCreateNewAccountButton(). //todo Fix error: "An account using this email address has already been registered."
-                    setGenderMale("gendermale"). //todo select M or F method
+                    clickCreateNewAccountButton().
+                    setGenderMale("gendermale").
                     setFirstName("Adam").
                     setLastName("Kowalski").
                     setPassword("pwdQWERTY123!").
