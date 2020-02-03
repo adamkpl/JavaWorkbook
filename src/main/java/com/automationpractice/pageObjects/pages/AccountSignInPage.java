@@ -12,7 +12,7 @@ public class AccountSignInPage extends AbstractPageObject {
         this.registerAccountForm = new RegisterAccountForm(driver);
     }
 
-    public RegisterAccountForm selectEmailFormAndTypeUserEmailAddress() {
+    public RegisterAccountForm createAnAccount() {
         return registerAccountForm;
     }
 

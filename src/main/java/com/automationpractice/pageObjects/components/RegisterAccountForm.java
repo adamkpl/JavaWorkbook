@@ -2,29 +2,23 @@ package com.automationpractice.pageObjects.components;
 
 import com.automationpractice.pageObjects.pages.AbstractPageObject;
 import com.automationpractice.pageObjects.pages.AccountSignInPage;
-import com.automationpractice.pageObjects.utils.User;
 import com.automationpractice.pageObjects.utils.WaitWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import static com.automationpractice.pageObjects.utils.User.*;
-import static org.junit.Assert.assertFalse;
-import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 public class RegisterAccountForm extends AbstractPageObject {
 
     // YOUR PERSONAL INFORMATION
 
+    @FindBy(id = "email_create")
+    private WebElement emailAddressField;
     @FindBy(id = "id_gender1")
     private WebElement gender_male;
     @FindBy(id = "id_gender2")
     private WebElement gender_female;
-    @FindBy(id = "email_create")
-    private WebElement emailAddressField;
     @FindBy(id = "customer_firstname")
     private WebElement firstName;
     @FindBy(id = "customer_lastname")
@@ -53,7 +47,7 @@ public class RegisterAccountForm extends AbstractPageObject {
     @FindBy(id = "phone_mobile")
     private WebElement phone_mobile;
     @FindBy(id = "alias")
-    private WebElement alias;
+    private WebElement addressAlias;
 
     // OTHER
 
@@ -61,74 +55,153 @@ public class RegisterAccountForm extends AbstractPageObject {
     private WebElement createAnAccountButton;
     @FindBy(id = "submitAccount")
     private WebElement registerButton;
+
+    // ERRORS
+
     @FindBy(id = "create_account_error")
     private WebElement createAnAccountError;
-
-    int iterate = 0;
-    WebDriverWait wait = new WebDriverWait(getDriver(), 10);
 
     public RegisterAccountForm(WebDriver driver) {
         super(driver);
     }
 
-    public AccountSignInPage registerAccount()
-    {
-        //todo Better implementation for User data. Enums?
-        //todo Polish it! Clean up the code. Smarter!
+    public RegisterAccountForm selectCreateNewAccountEmailAddressField() {
+        WaitWrapper.waitForElement(getDriver(),10,emailAddressField);
+        return this;
+    }
 
-        WaitWrapper.waitForElement(getDriver(), 10, emailAddressField);
-        emailAddressField.sendKeys(User.email);
+    public RegisterAccountForm setNewAccountEmailAddress(String emailAddress) {
+        emailAddressField.clear();
+        emailAddressField.sendKeys(emailAddress);
+        return this;
+    }
+
+    public RegisterAccountForm clickCreateNewAccountButton() {
+        //todo Fix error: "An account using this email address has already been registered."
+        WaitWrapper.waitForElement(getDriver(),10,createAnAccountButton);
         createAnAccountButton.click();
+        return this;
+    }
 
-        do
-        {
-            if (wait.until(textToBePresentInElementLocated(By.id("create_account_error"), "An account using this email address has already been registered.")))
-            {
-                int nextIteration = iterate++;
-
-                email = emailUsername.append(nextIteration) + "@" + emailDomain;
-
-                wait.until(elementToBeClickable(emailAddressField));
-                emailAddressField.clear();
-                emailAddressField.sendKeys(email);
-
-                createAnAccountButton.click();
-            }
-        }
-        while (wait.until(textToBePresentInElementLocated(By.id("create_account_error"), "An account using this email address has already been registered.")));
-        {
-            // no statements here as intended.
-        }
-
+    //todo one setGender method - M or F
+    public RegisterAccountForm setGenderMale(String gender) {
         WaitWrapper.waitForElement(getDriver(), 10, gender_male);
         gender_male.click();
-        firstName.sendKeys(User.firstNameGeneric[0]);
-        lastName.sendKeys(User.lastNameGeneric[0]);
-        password.sendKeys(User.password[0]);
+        gender_male.isSelected();
+        return this;
+    }
 
-        //todo Smarter method of writing these Selects
+    public RegisterAccountForm setGenderFemale(String gender) {
+        WaitWrapper.waitForElement(getDriver(), 10, gender_female);
+        gender_female.click();
+        gender_female.isSelected();
+        return this;
+    }
+
+    public RegisterAccountForm setFirstName(String aFirstName) {
+        WaitWrapper.waitForElement(getDriver(), 10, firstName);
+        firstName.clear();
+        firstName.sendKeys(aFirstName);
+        return this;
+    }
+
+    public RegisterAccountForm setLastName(String aLastName) {
+        WaitWrapper.waitForElement(getDriver(), 10, lastName);
+        lastName.clear();
+        lastName.sendKeys(aLastName);
+        return this;
+    }
+
+    public RegisterAccountForm setPassword(String aPassword) {
+        WaitWrapper.waitForElement(getDriver(), 10, password);
+        password.clear();
+        password.sendKeys(aPassword);
+        return this;
+    }
+
+    public RegisterAccountForm selectDayOfBirth(int dayOfBirth) {
+        //todo select by a String
         dobDay = new Select(getDriver().findElement(By.id("days")));
-            assertFalse(dobDay.isMultiple());
-        dobDay.selectByIndex(1);
+        dobDay.isMultiple();
+        dobDay.selectByIndex(dayOfBirth);
+        return this;
+    }
+
+    public RegisterAccountForm selectMonthOfBirth(int monthOfBirth) {
+        //todo select by a String
         dobMonth = new Select(getDriver().findElement(By.id("months")));
-            assertFalse(dobMonth.isMultiple());
-        dobMonth.selectByIndex(1);
+        dobMonth.isMultiple();
+        dobMonth.selectByIndex(monthOfBirth);
+        return this;
+    }
+
+    public RegisterAccountForm selectYearOfBirth(int yearOfBirth) {
+        //todo select by a String
         dobYear = new Select(getDriver().findElement(By.id("years")));
-            assertFalse(dobYear.isMultiple());
-        dobYear.selectByIndex(30);
-        address.sendKeys(User.street[0]);
-        city.sendKeys(User.city[0]);
+        dobYear.isMultiple();
+        dobYear.selectByIndex(yearOfBirth);
+        return this;
+    }
+
+    public RegisterAccountForm setAddress(String aAddress) {
+        WaitWrapper.waitForElement(getDriver(), 10, address);
+        address.clear();
+        address.sendKeys(aAddress);
+        return this;
+    }
+
+    public RegisterAccountForm setCity(String aCity) {
+        WaitWrapper.waitForElement(getDriver(), 10, city);
+        city.clear();
+        city.sendKeys(aCity);
+        return this;
+    }
+
+    public RegisterAccountForm selectState(int aState) {
+        //todo select by String
         state = new Select(getDriver().findElement(By.id("id_state")));
-            assertFalse(state.isMultiple());
-        state.selectByIndex(1);
-        postcode.sendKeys(User.zipPostcode[1]);
+        state.isMultiple();
+        state.selectByIndex(aState);
+        return this;
+    }
+
+    public RegisterAccountForm setPostcode(CharSequence aPostCode) {
+        WaitWrapper.waitForElement(getDriver(), 10, postcode);
+        postcode.clear();
+        postcode.sendKeys(aPostCode);
+        return this;
+    }
+
+    public RegisterAccountForm selectCountry(int aCountry) {
+        //todo select by String
         country = new Select(getDriver().findElement(By.id("id_country")));
-            assertFalse(country.isMultiple());
-        country.selectByIndex(1);
-        phone_mobile.sendKeys(User.phoneNumber[0]);
-        alias.clear();
-        alias.sendKeys(User.aliasDeliveryAddress[0]);
+        country.isMultiple();
+        country.selectByIndex(aCountry);
+        return this;
+    }
+    
+    public RegisterAccountForm setMobilePhoneNumber(CharSequence mobilePhoneNumber) {
+        //todo consider other data type since a phone number can by typed with non-int characters
+        WaitWrapper.waitForElement(getDriver(), 10, phone_mobile);
+        phone_mobile.clear();
+        phone_mobile.sendKeys(mobilePhoneNumber);
+        return this;
+    }
+
+    public RegisterAccountForm setAddressAlias(String aAddressAlias) {
+        WaitWrapper.waitForElement(getDriver(), 10, addressAlias);
+        addressAlias.clear();
+        addressAlias.sendKeys(aAddressAlias);
+        return this;
+    }
+
+    public RegisterAccountForm clickRegisterButton() {
+        registerButton.isEnabled();
         registerButton.click();
+        return this;
+    }
+
+    public AccountSignInPage registerAccount() {
         return new AccountSignInPage(getDriver());
     }
 }

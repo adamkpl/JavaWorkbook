@@ -3,7 +3,7 @@ package com.automationpractice.pageObjects.utils;
 public class User {
 
     //todo Rethink a good data pool.
-    //todo Regex for the email address. After succesfull account registration the next test run will fail
+    //todo Enums?
 
     //public static String[] email = {"a@a.pl","unique_address@yopmail.com",};
     public static StringBuilder emailUsername = new StringBuilder("a");

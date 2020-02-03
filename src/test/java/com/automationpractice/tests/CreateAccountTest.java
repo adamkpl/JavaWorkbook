@@ -13,7 +13,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 /**
  * Register Account Test
  *
- * @since Alpha 0.4 2020-02-01
+ * @since Alpha 0.5 2020-02-03
  * @author Adam K.
  */
 
@@ -49,12 +49,29 @@ public class CreateAccountTest {
 
         //When
         accountSignInPage.
-                selectEmailFormAndTypeUserEmailAddress().
-                registerAccount();
+                createAnAccount().
+                    selectCreateNewAccountEmailAddressField().
+                    setNewAccountEmailAddress("abc005@a.pl").
+                    clickCreateNewAccountButton(). //todo Fix error: "An account using this email address has already been registered."
+                    setGenderMale("gendermale"). //todo select M or F method
+                    setFirstName("Adam").
+                    setLastName("Kowalski").
+                    setPassword("pwdQWERTY123!").
+                    selectDayOfBirth(1).
+                    selectMonthOfBirth(1).
+                    selectYearOfBirth(1).
+                    setAddress("Street 1").
+                    setCity("City").
+                    selectState(1).
+                    setPostcode("12345").
+                    selectCountry(1).
+                    setMobilePhoneNumber("123456789").
+                    setAddressAlias("Home").
+                    clickRegisterButton();
 
         //Then
         myAccount.
-                getAndAssertWelcomeMessage();
+                getWelcomeMessage();
 
     }
 

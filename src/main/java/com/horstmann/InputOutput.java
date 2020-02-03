@@ -33,7 +33,6 @@ public class InputOutput {
         //3.8.3. Pętle
         do
         {
-
             if (userInput.length() == 0)
             {
 
