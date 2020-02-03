@@ -5,7 +5,10 @@ public class User {
     //todo Rethink a good data pool.
     //todo Regex for the email address. After succesfull account registration the next test run will fail
 
-    public static String[] email = {"a@a.pl","unique_address0001@yopmail.com","unique_address0006@yopmail.com"};
+    //public static String[] email = {"a@a.pl","unique_address@yopmail.com",};
+    public static StringBuilder emailUsername = new StringBuilder("a");
+    public static String emailDomain = "a.pl";
+    public static String email = emailUsername + "@" + emailDomain;
     public static String[] genderName = {"Female","Male"};
     public static String[] genderNameOneCharacter = {"F","M"};
     public static String[] genderNamePersonalTitle = {"Mrs","Mr"};

@@ -9,8 +9,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static com.automationpractice.pageObjects.utils.User.*;
 import static org.junit.Assert.assertFalse;
+import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 public class RegisterAccountForm extends AbstractPageObject {
 
@@ -58,20 +61,46 @@ public class RegisterAccountForm extends AbstractPageObject {
     private WebElement createAnAccountButton;
     @FindBy(id = "submitAccount")
     private WebElement registerButton;
+    @FindBy(id = "create_account_error")
+    private WebElement createAnAccountError;
+
+    int iterate = 0;
+    WebDriverWait wait = new WebDriverWait(getDriver(), 10);
 
     public RegisterAccountForm(WebDriver driver) {
         super(driver);
     }
 
-    public AccountSignInPage registerAccount() {
+    public AccountSignInPage registerAccount()
+    {
         //todo Better implementation for User data. Enums?
-        //todo get and set in the Test procedure, not here
+        //todo Polish it! Clean up the code. Smarter!
 
-        WaitWrapper.waitForElement(getDriver(),10,emailAddressField);
-        emailAddressField.sendKeys(User.email[2]);
+        WaitWrapper.waitForElement(getDriver(), 10, emailAddressField);
+        emailAddressField.sendKeys(User.email);
         createAnAccountButton.click();
 
-        WaitWrapper.waitForElement(getDriver(),10,gender_male);
+        do
+        {
+            if (wait.until(textToBePresentInElementLocated(By.id("create_account_error"), "An account using this email address has already been registered.")))
+            {
+                int nextIteration = iterate++;
+
+                email = emailUsername.append(nextIteration) + "@" + emailDomain;
+
+                wait.until(elementToBeClickable(emailAddressField));
+                emailAddressField.clear();
+                emailAddressField.sendKeys(email);
+
+                createAnAccountButton.click();
+            }
+        }
+        while (wait.until(textToBePresentInElementLocated(By.id("create_account_error"), "An account using this email address has already been registered.")));
+        {
+            // no statements here as intended.
+        }
+
+        WaitWrapper.waitForElement(getDriver(), 10, gender_male);
         gender_male.click();
         firstName.sendKeys(User.firstNameGeneric[0]);
         lastName.sendKeys(User.lastNameGeneric[0]);
@@ -102,5 +131,4 @@ public class RegisterAccountForm extends AbstractPageObject {
         registerButton.click();
         return new AccountSignInPage(getDriver());
     }
-
 }
