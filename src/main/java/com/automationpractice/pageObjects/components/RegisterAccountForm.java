@@ -3,11 +3,15 @@ package com.automationpractice.pageObjects.components;
 import com.automationpractice.pageObjects.pages.AbstractPageObject;
 import com.automationpractice.pageObjects.pages.AccountSignInPage;
 import com.automationpractice.pageObjects.utils.WaitWrapper;
+import static net.andreinc.mockneat.unit.user.Emails.emails;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.function.Supplier;
 
 public class RegisterAccountForm extends AbstractPageObject {
 
@@ -70,16 +74,25 @@ public class RegisterAccountForm extends AbstractPageObject {
         return this;
     }
 
+    /*
     public RegisterAccountForm setNewAccountEmailAddress(String emailAddress) {
         emailAddressField.clear();
         emailAddressField.sendKeys(emailAddress);
+        return this;
+    }
+    */
+
+    public RegisterAccountForm setRandomlyGeneratedNewAccountEmailAddress() {
+        emailAddressField.clear();
+        String fakeEmailAddress = emails().supplier().get(); //this will insert a randomly generated email address
+        emailAddressField.sendKeys(fakeEmailAddress);
         return this;
     }
 
     public RegisterAccountForm clickCreateNewAccountButton() {
         //todo Fix error: "An account using this email address has already been registered."
         WaitWrapper.waitForElement(getDriver(),10,createAnAccountButton);
-        createAnAccountButton.click();
+                createAnAccountButton.click();
         return this;
     }
 

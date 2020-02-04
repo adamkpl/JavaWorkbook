@@ -19,3 +19,4 @@ This repository contains every single bit of code I have written myself. With th
 - Selenium WebDriver - a suite of tools for automating web browsers
 - JUnit - a simple framework to write repeatable tests. It is an instance of the xUnit architecture for unit testing frameworks.
 - Allure - Allure test reports
+- Mockneat -  an arbitrary data-generator open-source library written in Java.

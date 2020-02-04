@@ -51,7 +51,7 @@ public class CreateAccountTest {
         accountSignInPage.
                 createAnAccount().
                     selectCreateNewAccountEmailAddressField().
-                    setNewAccountEmailAddress("abc005@a.pl").
+                    setRandomlyGeneratedNewAccountEmailAddress().
                     clickCreateNewAccountButton().
                     setGenderMale("gendermale").
                     setFirstName("Adam").
