@@ -53,19 +53,19 @@ public class CreateAccountTest {
                     selectCreateNewAccountEmailAddressField().
                     setRandomlyGeneratedNewAccountEmailAddress().
                     clickCreateNewAccountButton().
-                    setGenderMale("gendermale").
-                    setFirstName("Adam").
-                    setLastName("Kowalski").
-                    setPassword("pwdQWERTY123!").
+                    setRandomGender().
+                    setRandomFirstName().
+                    setRandomLastName().
+                    setRandomPassword().
                     selectDayOfBirth(1).
                     selectMonthOfBirth(1).
                     selectYearOfBirth(1).
-                    setAddress("Street 1").
-                    setCity("City").
+                    setAddress("StreetName 123").
+                    setCity("CityName").
                     selectState(1).
                     setPostcode("12345").
                     selectCountry(1).
-                    setMobilePhoneNumber("123456789").
+                    setMobilePhoneNumber("+1 123456789").
                     setAddressAlias("Home").
                     clickRegisterButton();
 
