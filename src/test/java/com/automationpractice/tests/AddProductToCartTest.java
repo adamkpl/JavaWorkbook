@@ -1,4 +1,4 @@
-package com.automationpractice;
+package com.automationpractice.tests;
 
 import org.junit.After;
 import org.junit.Before;
@@ -15,10 +15,9 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
  * Add any item to the cart and verify if cart not empty
- *
+ * Not Page Object Pattern coding!
  * @since Beta 0.7 2019-09-16
  * @author Adam K.
- * @see <a href="https://github.com/bonigarcia/webdrivermanager-examples/blob/master/src/test/java/io/github/bonigarcia/wdm/test/ChromeTest.java">ChromeTest.java</a>
  */
 
 public class AddProductToCartTest {
@@ -44,45 +43,44 @@ public class AddProductToCartTest {
     }
 
     @Test
-    public void testIfAddToCartButtonAddsAProductToCart() throws InterruptedException {
+    public void testIfAddToCartButtonAddsProductToCart(){
 
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
 
-        //Open Cart page. Should be empty.
+        // Open Cart page. Should be empty.
         driver.get("http://automationpractice.com/index.php?controller=order");
         By cartIsEmpty = By.xpath(("//*[contains(text(),'Your shopping cart is empty')]"));
-        //By cartIsEmpty = By.xpath(("//*[(text()='Your shopping cart is empty.')]"));
         wait.until(presenceOfElementLocated(cartIsEmpty));
         driver.findElement(cartIsEmpty);
         assertTrue("Step 1. Shopping cart is empty.",driver.findElement(cartIsEmpty).isDisplayed());
 
-        //Open a sample Product Page - product_7_34_0_0, SKU demo_7
+        // Open a sample Product Page - product_7_34_0_0, SKU demo_7
         driver.get("http://automationpractice.com/index.php?id_product=7&controller=product");
 
-        //Locate Add to cart button on the product page and click it
+        // Locate Add to cart button on the product page and click it
         By addToCardButton = By.id("add_to_cart");
         wait.until(presenceOfElementLocated(addToCardButton));
         wait.until(elementToBeClickable(addToCardButton)); //if not = product unavailable for purchase
         driver.findElement(addToCardButton).click();
 
-        //Look for a pop-up window confirmation "Product successfully added to your shopping cart"
+        // Look for a pop-up window confirmation "Product successfully added to your shopping cart"
         By productSuccessfullyAddedToCart = By.id("layer_cart");
         wait.until(presenceOfElementLocated(productSuccessfullyAddedToCart));
         driver.findElement(productSuccessfullyAddedToCart);
 
-        //Find Proceed to checkout button, and click it
+        // Find Proceed to checkout button, and click it
         By proceedToCheckoutButton = By.linkText("Proceed to checkout");
         wait.until(presenceOfElementLocated(proceedToCheckoutButton));
         wait.until(elementToBeClickable(proceedToCheckoutButton));
         driver.findElement(proceedToCheckoutButton).click();
 
-        //Cart is NOT empty
+        // Cart is NOT empty
         By shoppingCartContainsXProducts = By.id("summary_products_quantity");
         wait.until(presenceOfElementLocated(shoppingCartContainsXProducts));
         driver.findElement(shoppingCartContainsXProducts);
         assertTrue("Step2. Shopping cart is NOT empty.",driver.findElement(shoppingCartContainsXProducts).isDisplayed());
 
-        //Product was added the cart correctly
+        // Product was added the cart correctly
         By product_7_34_0_0 = By.id("product_7_34_0_0");
         wait.until(presenceOfElementLocated(product_7_34_0_0));
         driver.findElement(product_7_34_0_0);
