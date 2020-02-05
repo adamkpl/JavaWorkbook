@@ -19,11 +19,11 @@ import java.util.List;
 
 /**
  * Create an account using an invalid email address
- *
+ * Not Page Object Pattern coding!
  * @version  1.0.0 2019-09-09
  * @author Adam K.
- * @see <a href="https://github.com/bonigarcia/webdrivermanager-examples/blob/master/src/test/java/io/github/bonigarcia/wdm/test/ChromeTest.java">ChromeTest.java</a>
  */
+
 public class CreateAccountWithAnEmailAddressThatAlreadyExistsInDatabaseTest {
 
     private WebDriver driver;
@@ -36,9 +36,7 @@ public class CreateAccountWithAnEmailAddressThatAlreadyExistsInDatabaseTest {
     @Before
     public void setupTest() {
         driver = new ChromeDriver();
-        //Resize browser window - Maximize it
         driver.manage().window().maximize();
-        //Open URL
         driver.get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
     }
 
@@ -50,23 +48,23 @@ public class CreateAccountWithAnEmailAddressThatAlreadyExistsInDatabaseTest {
     }
 
     @Test
-    public void testIfAccountCanBeCreatedWhenEmailAlreadyExistsInDatabase() {
+    public void testIfAccountCanBeCreatedWhenEmailAlreadyExistsInDatabase(){
 
         WebDriverWait wait = new WebDriverWait(driver, 15);
 
-        //Look for CREATE AN ACCOUNT form
+        // Look for CREATE AN ACCOUNT form
         By emailInput = By.id("email_create");
         wait.until(presenceOfElementLocated(emailInput));
 
-        //Type a@a.pl (already exists in database)
+        // Type a@a.pl (already exists in database)
         driver.findElement(emailInput).sendKeys("a@a.pl");
 
-        //Click Create an account button
+        // Click Create an account button
         By createButton = By.id("SubmitCreate");
         wait.until(elementToBeClickable(createButton));
         driver.findElement(createButton).click();
 
-        //Wait for a warning message
+        // Wait for a warning message
         wait.until(textToBePresentInElementLocated(By.id("create_account_error"),"An account using this email address has already been registered."));
     }
 }

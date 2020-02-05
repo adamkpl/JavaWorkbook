@@ -12,11 +12,11 @@ public class NavigationBar extends AbstractPageObject {
     @FindBy(partialLinkText = "Sign in")
     private WebElement signInLink;
 
-    public NavigationBar(WebDriver driver) {
+    public NavigationBar(WebDriver driver){
         super(driver);
     }
 
-    public AccountSignInPage clickSignInLink() {
+    public AccountSignInPage clickSignInLink(){
         WaitWrapper.waitForElement(getDriver(),10,signInLink);
         signInLink.click();
         return new AccountSignInPage(getDriver());

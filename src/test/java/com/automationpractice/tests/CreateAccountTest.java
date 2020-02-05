@@ -11,9 +11,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
- * Register Account Test
- *
- * @since Alpha 0.5 2020-02-05
+ * Create an account
+ * Page Object Pattern with "Fluent API"
+ * @since Beta 0.1 2020-02-05
  * @author Adam K.
  */
 
@@ -46,7 +46,7 @@ public class CreateAccountTest {
     }
 
     @Test
-    public void testIfCanRegisterAccount() throws InterruptedException {
+    public void CanRegisterAccount() {
 
         //When
         accountSignInPage.
@@ -65,7 +65,6 @@ public class CreateAccountTest {
                     setRandomUSACity().
                     selectRandomState().
                     setRandomPostcode().
-                    selectRandomCountry().
                     setRandomMobilePhoneNumber().
                     setRandomAddressAlias().
                     clickRegisterButton();

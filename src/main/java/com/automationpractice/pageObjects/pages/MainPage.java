@@ -8,18 +8,18 @@ public class MainPage extends AbstractPageObject {
 
     private NavigationBar navigationBar;
 
-    public MainPage(WebDriver driver) {
+    public MainPage(WebDriver driver){
         super(driver);
         this.navigationBar = new NavigationBar(driver);
     }
 
-    public MainPage navigateToMainPage() {
+    public MainPage navigateToMainPage(){
         getDriver().manage().window().maximize();
         getDriver().get(Url.HTTP_AUTOMATIONPRACTICE_COM);
         return this;
     }
 
-    public NavigationBar selectSignInLink() {
+    public NavigationBar selectSignInLink(){
         return navigationBar;
     }
 

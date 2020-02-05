@@ -7,12 +7,12 @@ public class AccountSignInPage extends AbstractPageObject {
 
     private RegisterAccountForm registerAccountForm;
 
-    public AccountSignInPage(WebDriver driver) {
+    public AccountSignInPage(WebDriver driver){
         super(driver);
         this.registerAccountForm = new RegisterAccountForm(driver);
     }
 
-    public RegisterAccountForm createAnAccount() {
+    public RegisterAccountForm createAnAccount(){
         return registerAccountForm;
     }
 
