@@ -1,4 +1,4 @@
-package com.automationpractice.tests;
+package com.automationpractice;
 
 import com.automationpractice.pageObjects.pages.AccountSignInPage;
 import com.automationpractice.pageObjects.pages.MainPage;

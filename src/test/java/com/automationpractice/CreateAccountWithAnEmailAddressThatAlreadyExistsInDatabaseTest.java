@@ -1,4 +1,4 @@
-package com.automationpractice.tests;
+package com.automationpractice;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
@@ -15,6 +15,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+import java.util.List;
+
 /**
  * Create an account using an invalid email address
  * Not Page Object Pattern coding!
@@ -22,7 +24,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
  * @author Adam K.
  */
 
-public class CreateAccountWithIncorrectEmailAddressTest {
+public class CreateAccountWithAnEmailAddressThatAlreadyExistsInDatabaseTest {
 
     private WebDriver driver;
 
@@ -46,7 +48,7 @@ public class CreateAccountWithIncorrectEmailAddressTest {
     }
 
     @Test
-    public void testIfAccountCanBeCreatedForAnIncorrectEmailAddress() {
+    public void testIfAccountCanBeCreatedWhenEmailAlreadyExistsInDatabase(){
 
         WebDriverWait wait = new WebDriverWait(driver, 15);
 
@@ -54,8 +56,8 @@ public class CreateAccountWithIncorrectEmailAddressTest {
         By emailInput = By.id("email_create");
         wait.until(presenceOfElementLocated(emailInput));
 
-        // Type an Invalid/Unexpected value
-        driver.findElement(emailInput).sendKeys("testIfAccountCanBeCreatedForAnIncorrectEmailInput");
+        // Type a@a.pl (already exists in database)
+        driver.findElement(emailInput).sendKeys("a@a.pl");
 
         // Click Create an account button
         By createButton = By.id("SubmitCreate");
@@ -63,6 +65,6 @@ public class CreateAccountWithIncorrectEmailAddressTest {
         driver.findElement(createButton).click();
 
         // Wait for a warning message
-        wait.until(textToBePresentInElementLocated(By.id("create_account_error"),"Invalid email address."));
+        wait.until(textToBePresentInElementLocated(By.id("create_account_error"),"An account using this email address has already been registered."));
     }
 }
