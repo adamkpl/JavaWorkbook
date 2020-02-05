@@ -7,9 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class MyAccount extends AbstractPageObject {
 
-    //private MyAccount myAccount;
-
-    @FindBy(xpath = "//*[contains(text(),'Welcome to your account.')]")
+    @FindBy(xpath = "//*[contains(text(),'Welcome to your account')]")
     private WebElement welcomeMessage;
 
     public MyAccount(WebDriver driver) {
@@ -18,6 +16,7 @@ public class MyAccount extends AbstractPageObject {
 
     public WebElement getWelcomeMessage() {
         WaitWrapper.waitForElement(getDriver(),30,welcomeMessage);
+        System.out.println("Success! Welcome to your account :-)");
         return welcomeMessage;
     }
 }

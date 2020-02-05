@@ -13,7 +13,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 /**
  * Register Account Test
  *
- * @since Alpha 0.5 2020-02-03
+ * @since Alpha 0.5 2020-02-05
  * @author Adam K.
  */
 
@@ -40,6 +40,7 @@ public class CreateAccountTest {
     @After
     public void teardown() {
         if (driver != null) {
+            driver.close();
             driver.quit();
         }
     }
@@ -51,22 +52,22 @@ public class CreateAccountTest {
         accountSignInPage.
                 createAnAccount().
                     selectCreateNewAccountEmailAddressField().
-                    setRandomlyGeneratedNewAccountEmailAddress().
+                    setRandomEmailAddress().
                     clickCreateNewAccountButton().
                     setRandomGender().
                     setRandomFirstName().
                     setRandomLastName().
                     setRandomPassword().
-                    selectDayOfBirth(1).
-                    selectMonthOfBirth(1).
-                    selectYearOfBirth(1).
-                    setAddress("StreetName 123").
-                    setCity("CityName").
-                    selectState(1).
-                    setPostcode("12345").
-                    selectCountry(1).
-                    setMobilePhoneNumber("+1 123456789").
-                    setAddressAlias("Home").
+                    selectRandomDayOfBirth().
+                    selectRandomMonthOfBirth().
+                    selectRandomYearOfBirth().
+                    setRandomAddress().
+                    setRandomUSACity().
+                    selectRandomState().
+                    setRandomPostcode().
+                    selectRandomCountry().
+                    setRandomMobilePhoneNumber().
+                    setRandomAddressAlias().
                     clickRegisterButton();
 
         //Then
