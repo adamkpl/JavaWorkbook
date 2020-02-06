@@ -46,9 +46,9 @@ public class CreateAccountWithIncorrectEmailAddressTest {
     }
 
     @Test
-    public void testIfAccountCanBeCreatedForAnIncorrectEmailAddress() {
+    public void testIfAccountCanBeCreatedWithAnIncorrectEmailAddress(){
 
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
 
         // Look for CREATE AN ACCOUNT form
         By emailInput = By.id("email_create");

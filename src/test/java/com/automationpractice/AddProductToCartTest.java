@@ -52,7 +52,7 @@ public class AddProductToCartTest {
         By cartIsEmpty = By.xpath(("//*[contains(text(),'Your shopping cart is empty')]"));
         wait.until(presenceOfElementLocated(cartIsEmpty));
         driver.findElement(cartIsEmpty);
-        assertTrue("Step 1. Shopping cart is empty.",driver.findElement(cartIsEmpty).isDisplayed());
+        assertTrue("Step 1. Shopping cart is empty.", driver.findElement(cartIsEmpty).isDisplayed());
 
         // Open a sample Product Page - product_7_34_0_0, SKU demo_7
         driver.get("http://automationpractice.com/index.php?id_product=7&controller=product");
@@ -78,12 +78,12 @@ public class AddProductToCartTest {
         By shoppingCartContainsXProducts = By.id("summary_products_quantity");
         wait.until(presenceOfElementLocated(shoppingCartContainsXProducts));
         driver.findElement(shoppingCartContainsXProducts);
-        assertTrue("Step2. Shopping cart is NOT empty.",driver.findElement(shoppingCartContainsXProducts).isDisplayed());
+        assertTrue("Step2. Shopping cart is NOT empty.", driver.findElement(shoppingCartContainsXProducts).isDisplayed());
 
-        // Product was added the cart correctly
+        // Product was added to the cart correctly
         By product_7_34_0_0 = By.id("product_7_34_0_0");
         wait.until(presenceOfElementLocated(product_7_34_0_0));
         driver.findElement(product_7_34_0_0);
-        assertTrue("product_7_34_0_0 is present in the Cart",driver.findElement(product_7_34_0_0).isDisplayed());
+        assertTrue("product_7_34_0_0 is present in the Cart", driver.findElement(product_7_34_0_0).isDisplayed());
     }
 }

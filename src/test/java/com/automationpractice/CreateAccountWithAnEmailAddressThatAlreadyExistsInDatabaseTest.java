@@ -24,7 +24,7 @@ import java.util.List;
  * @author Adam K.
  */
 
-public class CreateAccountWithAnEmailAddressThatAlreadyExistsInDatabaseTest {
+public class CreateAccountWithAnEmailAddressThatAlreadyExistsInDatabaseTest{
 
     private WebDriver driver;
 
@@ -50,7 +50,7 @@ public class CreateAccountWithAnEmailAddressThatAlreadyExistsInDatabaseTest {
     @Test
     public void testIfAccountCanBeCreatedWhenEmailAlreadyExistsInDatabase(){
 
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
 
         // Look for CREATE AN ACCOUNT form
         By emailInput = By.id("email_create");
