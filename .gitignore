@@ -7,6 +7,9 @@
 log/
 target/
 
-#Allure
+# Allure
 /allure-results/
 /.allure/
+
+# testOutputs
+testOutputs

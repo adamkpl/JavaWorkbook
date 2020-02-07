@@ -3,6 +3,7 @@ package com.automationpractice;
 import com.automationpractice.pageObjects.pages.AccountSignInPage;
 import com.automationpractice.pageObjects.pages.MainPage;
 import com.automationpractice.pageObjects.pages.MyAccount;
+import com.automationpractice.pageObjects.utils.TakeScreenshotWrapper;
 import org.junit.*;
 
 import org.openqa.selenium.WebDriver;
@@ -10,10 +11,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+import java.io.IOException;
+
 /**
  * Create an account
  * Page Object Pattern with "Fluent API"
- * @since Beta 0.1 2020-02-05
+ * @since Beta 0.11 2020-02-07
  * @author Adam K.
  */
 
@@ -24,6 +27,7 @@ public class CreateAccountTest {
     MainPage mainPage = new MainPage(driver);
     AccountSignInPage accountSignInPage = new AccountSignInPage(driver);
     MyAccount myAccount = new MyAccount(driver);
+    TakeScreenshotWrapper takeScreenshotWrapper = new TakeScreenshotWrapper();
 
     @BeforeClass
     public static void setupClass() {
@@ -46,7 +50,7 @@ public class CreateAccountTest {
     }
 
     @Test
-    public void CanRegisterAccount() {
+    public void CanRegisterAccount() throws IOException {
 
         //When
         accountSignInPage.
@@ -72,6 +76,7 @@ public class CreateAccountTest {
         //Then
         myAccount.
                 getWelcomeMessage();
+                takeScreenshot();
 
     }
 
@@ -80,6 +85,10 @@ public class CreateAccountTest {
                 navigateToMainPage().
                 selectSignInLink().
                 clickSignInLink();
+    }
+
+    private void takeScreenshot() throws IOException {
+        takeScreenshotWrapper.takeScreenshot(driver,"welcomeMessageMyAccount.png");
     }
 
 }
