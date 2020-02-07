@@ -27,7 +27,6 @@ public class CreateAccountTest {
     MainPage mainPage = new MainPage(driver);
     AccountSignInPage accountSignInPage = new AccountSignInPage(driver);
     MyAccount myAccount = new MyAccount(driver);
-    TakeScreenshotWrapper takeScreenshotWrapper = new TakeScreenshotWrapper();
 
     @BeforeClass
     public static void setupClass() {
@@ -88,7 +87,7 @@ public class CreateAccountTest {
     }
 
     private void takeScreenshot() throws IOException {
-        takeScreenshotWrapper.takeScreenshot(driver,"welcomeMessageMyAccount.png");
+        TakeScreenshotWrapper.takeScreenshot(driver,"welcomeMessageMyAccount.png");
     }
 
 }
