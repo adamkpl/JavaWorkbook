@@ -6,6 +6,8 @@ I occasionally keep branches, so you can check out what's cookin' ;)
 
 ## Packages
 
+**com.typicode.jsonplaceholder** - Created on 02.2020. REST tests.
+
 **com.automationpractice** - Created on 09.2019. Selenium WebDriver automation tests.
 
 **com.javafortesters** - Created on 08/09.2019. My first JUnit tests. I started reading "Java For Testers. Learn Java fundamentals fast" by Alan Richardson. The book is about Test Driven Development (TDD).
