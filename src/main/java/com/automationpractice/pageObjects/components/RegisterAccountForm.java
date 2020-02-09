@@ -170,7 +170,7 @@ public class RegisterAccountForm extends AbstractPageObject {
         /* Could be aligned with results of setRandomGender().
         Female (0) or Male (1). */
 
-        WaitWrapper.waitForElement(getDriver(), 10, lastName);
+        WaitWrapper.waitForElement(getDriver(), 10, firstName);
 
         Random random = new Random();
         int selectGender = random.nextInt(2);
