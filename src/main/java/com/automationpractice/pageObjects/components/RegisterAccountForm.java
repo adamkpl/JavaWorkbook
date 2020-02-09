@@ -239,7 +239,7 @@ public class RegisterAccountForm extends AbstractPageObject {
         dobDay.isMultiple();
 
         List<WebElement> selectDay = getDriver().findElements(
-                By.xpath("//SELECT[@id='days']/self::SELECT/option[@value!='-']"));
+                By.xpath("//SELECT[@id='days']/self::SELECT/option[@value>'0']"));
         int maxDays = selectDay.size();
 
         Random randDay = new Random();
@@ -264,7 +264,7 @@ public class RegisterAccountForm extends AbstractPageObject {
         dobMonth.isMultiple();
 
         List<WebElement> selectMonth = getDriver().findElements(
-                By.xpath("//SELECT[@id='months']/self::SELECT/option[@value!='-']"));
+                By.xpath("//SELECT[@id='months']/self::SELECT/option[@value>'0']"));
         int maxMonths = selectMonth.size();
 
         Random randMonth = new Random();
@@ -289,7 +289,7 @@ public class RegisterAccountForm extends AbstractPageObject {
         dobYear.isMultiple();
 
         List<WebElement> selectYear = getDriver().findElements(
-                By.xpath("//SELECT[@id='years']/self::SELECT/option[@value!='-']"));
+                By.xpath("//SELECT[@id='years']/self::SELECT/option[@value>'0']"));
         int maxYears = selectYear.size();
 
         Random randYear = new Random();
@@ -355,7 +355,7 @@ public class RegisterAccountForm extends AbstractPageObject {
         state.isMultiple();
 
         List<WebElement> selectState = getDriver().findElements(
-                By.xpath("//SELECT[@id='id_state']/self::SELECT/option[@value!='-']"));
+                By.xpath("//SELECT[@id='id_state']/self::SELECT/option[@value>'0']"));
         int maxStates = selectState.size();
 
         Random randState = new Random();
@@ -403,9 +403,8 @@ public class RegisterAccountForm extends AbstractPageObject {
         country = new Select(getDriver().findElement(By.id("id_country")));
         country.isMultiple();
 
-        //todo Correct the hard-coded value
         List<WebElement> selectCountry = getDriver().findElements(
-                By.xpath("//SELECT[@id='id_country']/self::SELECT/option[@value!='21']"));
+                By.xpath("//SELECT[@id='id_country']/self::SELECT/option[@value>'0']"));
         int maxCountry = selectCountry.size();
 
         Random randCountry = new Random();
