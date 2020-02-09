@@ -24,3 +24,4 @@ I occasionally keep branches, so you can check out what's cookin' ;)
 - JUnit - a simple framework to write repeatable tests. It is an instance of the xUnit architecture for unit testing frameworks.
 - Allure - Allure test reports
 - Mockneat - an arbitrary data-generator open-source library written in Java.
+- REST Assured - Java domain-specific language for easy testing of REST services.
