@@ -6,8 +6,15 @@ public class IntToCharAndBackToInt {
 
         // Task: convert 358 to single digits so they add up to 16.
 
-        // BASIC APPROACH
+        System.out.println("BASIC APPROACH: ");
+        getBasicSolution();
 
+        System.out.println("FANCY APPROACH with the help of Stack Overflow: ");
+        getFancySolution();
+
+    }
+
+    public static void getBasicSolution(){
         int originalNumber = 358;
 
         // Print 358
@@ -28,9 +35,22 @@ public class IntToCharAndBackToInt {
 
         // Print results
         System.out.println(three + five + eight);
-
     }
 
+    public static void getFancySolution(){
+
+        // Print 358
+        int number = 358;
+
+        System.out.println(number);
+
+        int sum = String.valueOf(number)
+                .chars()
+                .map(Character::getNumericValue)
+                .sum();
+
+        System.out.println(sum);
+    }
 
 }
 
