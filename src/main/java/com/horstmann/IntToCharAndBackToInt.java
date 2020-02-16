@@ -1,15 +1,20 @@
 package com.horstmann;
 
+import java.util.ArrayList;
+
 public class IntToCharAndBackToInt {
 
     public static void main(String[] args) {
 
         // Task: convert 358 to single digits so they add up to 16.
 
-        System.out.println("BASIC APPROACH: ");
+        System.out.println("\nBASIC APPROACH: ");
         getBasicSolution();
 
-        System.out.println("FANCY APPROACH with the help of Stack Overflow: ");
+        System.out.println("\nBASIC APPROACH v2: ");
+        getBasicSolutionV2();
+
+        System.out.println("\nFANCY APPROACH with the help of Stack Overflow: ");
         getFancySolution();
 
     }
@@ -17,7 +22,7 @@ public class IntToCharAndBackToInt {
     public static void getBasicSolution(){
         int originalNumber = 358;
 
-        // Print 358
+        // Print originalNumber
         System.out.println(originalNumber);
 
         // Convert int to single chars
@@ -37,6 +42,36 @@ public class IntToCharAndBackToInt {
         System.out.println(three + five + eight);
     }
 
+    public static void getBasicSolutionV2(){
+        int originalNumber = 358;
+
+        // Print originalNumber
+        System.out.println("originalNumber: " + originalNumber);
+
+        // Print the length of the originalNumber
+        int numberLength = Integer.toString(originalNumber).length();
+        System.out.println("Number of chars in originalNumber: " + numberLength);
+
+        // Save individual digit values to an Integer arrayList
+        ArrayList<Integer> charList = new ArrayList<>();
+        for (int y=0; y<numberLength; y++) {
+            int numericValue = Character.getNumericValue(Integer.toString(originalNumber).charAt(y));
+            charList.add(numericValue);
+            System.out.println("Numeric value: " + numericValue);
+        }
+
+        // Print Integer arrayList elements
+        System.out.println("Integer arrayList elements: " + charList);
+
+        // Print the sum of Integer arrayList elements
+        int sum = 0;
+        for(int z : charList) {
+            sum += z;
+        }
+        System.out.println("Sum: " + sum);
+
+    }
+
     public static void getFancySolution(){
 
         // Print 358
@@ -53,4 +88,3 @@ public class IntToCharAndBackToInt {
     }
 
 }
-
