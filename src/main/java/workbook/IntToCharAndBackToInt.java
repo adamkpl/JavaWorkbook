@@ -1,4 +1,4 @@
-package com.horstmann;
+package workbook;
 
 import java.util.ArrayList;
 
