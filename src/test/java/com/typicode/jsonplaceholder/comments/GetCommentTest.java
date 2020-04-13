@@ -39,13 +39,14 @@ public class GetCommentTest {
     public void verifyContentTypeJSON(){
         response.then().assertThat().contentType(ContentType.JSON);
     }
-
+/*
     @Test
     @DisplayName("Receive response in 250ms or less")
     @Description("Ensure that request response time is 250ms or less")
     public void canGetResponseInLessThan250ms(){
         response.then().assertThat().time(lessThan(2500L));
     }
+*/
 
     @Test
     @DisplayName("Receive a specific record")
