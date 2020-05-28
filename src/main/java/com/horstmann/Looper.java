@@ -1,10 +1,11 @@
 package com.horstmann;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
  * Looper demo
- * @version 1.2 2019-08-06
+ * @version 1.3 2020-05-28
  * @author Adam K.
  */
 
@@ -22,16 +23,23 @@ public class Looper
 
         System.out.println("*****");
 
-        // Enhanced for loop demo
+        // Enhanced for loop demo. Updated on 28.05.2020 with an exception handling
         // Array with Integers
         System.out.println("Enhanced for loop with an array of integers:");
 
-        int[] myIntArray = {100,1,50};
+        int[] myIntArray = {100,1,50,49};
         Arrays.sort(myIntArray); // Sort array
-        for (int x : myIntArray) // List all elements in an array
-        {
-            //System.out.println(Array.getInt(myIntArray,myIntArray.length)); //ArrayIndexOutOfBoundsException :-)
-            System.out.println(x);
+        try {
+            for (int x : myIntArray)
+            {
+                System.out.println(Array.getInt(myIntArray,myIntArray.length)); // =ArrayIndexOutOfBoundsException
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            for (int x : myIntArray)
+            {
+                System.out.println(x);
+            }
+            //e.printStackTrace();
         }
 
         System.out.println("*****");
