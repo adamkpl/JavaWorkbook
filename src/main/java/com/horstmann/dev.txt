@@ -1,0 +1,20 @@
+// Nie jestem odpowiedzialny za ten kod. Zmusili mnie do napisania go wbrew mojej woli.
+// Drogi przyszły ja. Proszę, wybacz mi.
+// Nie potrafię nawet wyrazić, jak mi przykro.
+// Jeżeli jeszcze raz zobaczę coś takiego, przeżyję załamanie nerwowe w pracy.
+// Jeżeli ten warunek zostanie kiedykolwiek spełniony,
+// proszę o informację – przewidziana nagroda. Telefon: xxx-xxx-xxx.
+// Drogi opiekunie kodu:
+// Kiedy skończysz próbować „zoptymalizować” tę procedurę
+// i zrozumiesz już, jak okropny był to błąd,
+// proszę, dodaj coś od siebie do tego licznika
+// dla następnego gościa:
+// suma_zmarnowanych_tutaj_godzin = 42
+// Kiedy to pisałem, tylko ja i Bóg rozumieliśmy, co robię
+// Teraz – Bóg jeden wie
+// Czasami wydaje mi się, że kompilator ignoruje wszystkie moje komentarze.
+// Ten kod i całą moją pracę dedykuję mojej żonie Darlene, która będzie
+// musiała wspierać mnie, trójkę naszych dzieci i naszego psa, gdy tylko
+// zostanie on opublikowany.
+// Pijany, naprawić później
+// Magia. Nie dotykać
