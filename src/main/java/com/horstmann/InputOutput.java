@@ -52,6 +52,8 @@ public class InputOutput {
         //Save user's input into a .txt file.
         String userOutput = userInput;
         //PrintWriter saveOutput = new PrintWriter("..\\out.txt"); //If file does not exist, it should be created and saved in your IDE's folder e.g \\Users\\username\\IdeaProjects
+
+        // todo This will not work on Linux as it does on Windows. It will be saved as 'src\main\java\com\horstmann\out.txt'
         PrintWriter saveOutput = new PrintWriter("src\\main\\java\\com\\horstmann\\out.txt");
         saveOutput.print(userOutput);
         saveOutput.close();
@@ -63,6 +65,7 @@ public class InputOutput {
 
         //Read contents from a local file
         //Scanner localTextFile = new Scanner(Paths.get("..\\out.txt"));
+        // todo This will not work on Linux as it does on Windows. It will be saved as 'src\main\java\com\horstmann\out.txt'
         Scanner localTextFile = new Scanner(Paths.get("src\\main\\java\\com\\horstmann\\out.txt"));
 
         if (localTextFile.hasNext())

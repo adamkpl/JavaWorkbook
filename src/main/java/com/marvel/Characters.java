@@ -3,6 +3,8 @@ package com.marvel;
 public class Characters
 {
     // Fields - Characteristics
+    /* "Jeśli przewidujemy, iż niektóre pola mogą być niezdefiniowane, a mogą zostać wywołane w trakcie programu, to
+    należy nad takimi polami umieścić adnotację @Nullable z com.sun.istack.internal.Nullable" */
     private static int nextId = 0;
     private int id;
     private int powerLevel;
@@ -15,14 +17,18 @@ public class Characters
     /*
     A default constructor without parameters. Without it, IDE will not compile the code due to "There is no default
     constructor".
+    "Jeżeli zdefiniujemy w klasie choć jeden konstruktor z parametrami to kompilator nie wygeneruje
+    konstruktora domyślnego. Musimy go sami zdefiniować."
     */
     public Characters()
     {
+        /*
         id = 0;
         powerLevel = 0;
         superName = "null";
         realName = "null";
         superPowers = "null";
+        */
     }
 
     // A rightous constructor
@@ -67,7 +73,7 @@ public class Characters
         return realName;
     }
 
-    // Get Real Name
+    // Get Super Powers
     public String getSuperPowers()
     {
         return superPowers;

@@ -56,6 +56,7 @@ public class Looper
 
         try {
             // Define the source of strings that will go into a List
+            // todo This will fail to find the file on Linux. Address this issue
             BufferedReader file = new BufferedReader(new FileReader("src\\main\\java\\com\\horstmann\\dev.txt"));
             // Define input data type
             String input;
