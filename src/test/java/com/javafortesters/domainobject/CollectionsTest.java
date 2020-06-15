@@ -1,4 +1,4 @@
-package com.javafortesters;
+package com.javafortesters.domainobject;
 
 //import com.javafortesters.domainobject.CollectionsSamples;
 import org.junit.Test;
