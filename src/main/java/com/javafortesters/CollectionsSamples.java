@@ -1,4 +1,4 @@
-package com.javafortesters.domainobject;
+package com.javafortesters;
 
 import java.util.*;
 
@@ -12,6 +12,7 @@ public class CollectionsSamples {
 
     //todo Add more collections
     public static final int[] ARRAY_WITH_DUPLICATED_ELEMENTS = {0, 0, 1, 1};
+    public static final int[] ARRAY_WITH_DUPLICATED_ELEMENTS_2 = {0, 0, 1, 1};
     public static List<String> workdays = new ArrayList<>();
     public static Set<String> genericSet = new HashSet<>();
 
