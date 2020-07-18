@@ -4,10 +4,9 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClick
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import com.SeleniumWebDriver;
+import org.junit.*;
+import org.junit.experimental.categories.Category;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -21,7 +20,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
  * @version  1.0.0 2019-09-09
  * @author Adam K.
  */
-
+@Ignore
 public class CreateAccountWithIncorrectEmailAddressTest {
 
     private WebDriver driver;
@@ -44,7 +43,7 @@ public class CreateAccountWithIncorrectEmailAddressTest {
             driver.quit();
         }
     }
-
+    @Category(SeleniumWebDriver.class)
     @Test
     public void testIfAccountCanBeCreatedWithAnIncorrectEmailAddress(){
 

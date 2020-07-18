@@ -1,12 +1,11 @@
 package com.google.play;
 
+import com.SeleniumWebDriver;
 import com.automationpractice.pageObjects.utils.TakeScreenshotWrapper;
 import com.automationpractice.pageObjects.utils.WaitWrapper;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
+import org.junit.experimental.categories.Category;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,7 +23,7 @@ import static junit.framework.TestCase.*;
  * @version 0.1 Alpha 2020-04-11
  * @author Adam K.
  */
-
+@Ignore
 public class MostPopularSeleniumMethodsTestCheatSheet2 {
 
     public static WebDriver driver;
@@ -34,12 +33,14 @@ public class MostPopularSeleniumMethodsTestCheatSheet2 {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.get("https://play.google.com/store/apps");
+        System.out.println("setupClass()");
     }
 
     @Before
     public void setupTest() {
         //driver = new ChromeDriver();
-        //driver.manage().window().maximize();
+        driver.manage().window().maximize();
+        System.out.println("setupTest()");
     }
 
     @AfterClass
@@ -47,10 +48,12 @@ public class MostPopularSeleniumMethodsTestCheatSheet2 {
         if (driver != null) {
             driver.quit();
         }
+        System.out.println("teardown()");
     }
 
+    @Category(SeleniumWebDriver.class)
     @Test
-    public void MoveToElement() throws IOException {
+    public void moveToElement() throws IOException {
 
         WebDriverWait wait = new WebDriverWait(driver, 5);
         /*
@@ -103,6 +106,8 @@ public class MostPopularSeleniumMethodsTestCheatSheet2 {
         actions.perform();
         assertTrue("Entertainment menu is displayed", playServicesMenuEntertainment.isDisplayed());
         TakeScreenshotWrapper.takeScreenshot(driver, "entertainment.png");
+
+        System.out.println("moveToElement()");
     }
 
 }

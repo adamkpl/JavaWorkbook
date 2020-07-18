@@ -33,7 +33,7 @@ public class CollectionsTest {
         addMultipleElementsToSet(genericSet, 10, "test");
         prepareAnInvalidWeekDaysNamesList(); // Index 3 = Wednesday
 
-        System.out.println("BeforeClass setup method: COMPLETED.");
+        System.out.println("BeforeClass setup method: DONE.");
     }
 
     @AfterClass
@@ -52,7 +52,6 @@ public class CollectionsTest {
         assertNotSame("Index 0 and 2 are not the same (int=0, 1)",
                 ARRAY_WITH_DUPLICATED_ELEMENTS[0],
                 ARRAY_WITH_DUPLICATED_ELEMENTS[2]);
-        System.out.println("Test execution time: " + stopwatch.runtime(MILLISECONDS) + " ms");
     }
 
     @Test
@@ -61,14 +60,12 @@ public class CollectionsTest {
         assertArrayEquals("Arrays are equal",
                 ARRAY_WITH_DUPLICATED_ELEMENTS,
                 ARRAY_WITH_DUPLICATED_ELEMENTS_2);
-        System.out.println("Test execution time: " + stopwatch.runtime(MILLISECONDS) + " ms");
     }
 
     @Test
     public void anIntegerArraySizeIsNotZero() {
         // THEN
         assertTrue("Array size is bigger than 0", ARRAY_WITH_DUPLICATED_ELEMENTS.length > 0);
-        System.out.println("Test execution time: " + stopwatch.runtime(MILLISECONDS) + " ms");
     }
 
     @Test
@@ -76,7 +73,6 @@ public class CollectionsTest {
         //addMultipleElementsToSet(genericSet, 10, "test");
         // THEN
         assertEquals("Set collection does not allow duplicates", 1, genericSet.size());
-        System.out.println("Test execution time: " + stopwatch.runtime(MILLISECONDS) + " ms");
     }
 
     @Test
@@ -86,6 +82,5 @@ public class CollectionsTest {
         workdays.set(3, "Thursday");
         // THEN
         assertEquals("Index #3 should be Thursday", "Thursday", workdays.get(3));
-        System.out.println("Test execution time: " + stopwatch.runtime(MILLISECONDS) + " ms");
     }
 }

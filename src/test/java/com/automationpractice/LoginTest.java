@@ -1,11 +1,13 @@
 package com.automationpractice;
 
+import com.SeleniumWebDriver;
 import com.automationpractice.pageObjects.pages.AccountSignInPage;
 import com.automationpractice.pageObjects.pages.MainPage;
 import com.automationpractice.pageObjects.pages.MyAccount;
 import com.automationpractice.pageObjects.utils.TakeScreenshotWrapper;
 import org.junit.*;
 
+import org.junit.experimental.categories.Category;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -19,7 +21,7 @@ import java.io.IOException;
  * @since Beta 0.1 2020-02-18
  * @author Adam K.
  */
-
+@Ignore
 public class LoginTest {
 
     private static WebDriver driver;
@@ -48,6 +50,7 @@ public class LoginTest {
         }
     }
 
+    @Category(SeleniumWebDriver.class)
     @Test
     public void canLoginToAccount() throws IOException {
 

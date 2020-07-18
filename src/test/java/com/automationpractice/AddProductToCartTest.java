@@ -1,10 +1,11 @@
 package com.automationpractice;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import com.SeleniumWebDriver;
+import org.junit.*;
+
 import static junit.framework.TestCase.assertTrue;
+
+import org.junit.experimental.categories.Category;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,7 +20,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
  * @since Beta 0.7 2019-09-16
  * @author Adam K.
  */
-
+@Ignore
 public class AddProductToCartTest {
 
     private WebDriver driver;
@@ -42,6 +43,7 @@ public class AddProductToCartTest {
         }
     }
 
+    @Category(SeleniumWebDriver.class)
     @Test
     public void testIfAddToCartButtonAddsProductToCart(){
 

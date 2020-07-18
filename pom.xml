@@ -26,6 +26,7 @@
         <io.github.bonigarcia.version>3.8.1</io.github.bonigarcia.version>
         <org.seleniumhq.selenium.version>3.141.59</org.seleniumhq.selenium.version>
         <net.andreinc.mockneat.version>0.3.8</net.andreinc.mockneat.version>
+        <com.googlecode.json-simple>1.1.1</com.googlecode.json-simple>
     </properties>
 
     <build>
@@ -153,6 +154,11 @@
             <groupId>net.andreinc.mockneat</groupId>
             <artifactId>mockneat</artifactId>
             <version>${net.andreinc.mockneat.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>${com.googlecode.json-simple}</version>
         </dependency>
     </dependencies>
 </project>

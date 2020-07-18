@@ -1,11 +1,13 @@
 package com.automationpractice;
 
+import com.SeleniumWebDriver;
 import com.automationpractice.pageObjects.pages.AccountSignInPage;
 import com.automationpractice.pageObjects.pages.MainPage;
 import com.automationpractice.pageObjects.pages.MyAccount;
 import com.automationpractice.pageObjects.utils.TakeScreenshotWrapper;
 import org.junit.*;
 
+import org.junit.experimental.categories.Category;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -19,7 +21,7 @@ import java.io.IOException;
  * @since Beta 0.11 2020-02-07
  * @author Adam K.
  */
-
+@Ignore
 public class CreateAccountTest {
 
     private static WebDriver driver;
@@ -47,7 +49,7 @@ public class CreateAccountTest {
             driver.quit();
         }
     }
-
+    @Category(SeleniumWebDriver.class)
     @Test
     public void CanRegisterAccount() throws IOException {
 
