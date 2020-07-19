@@ -3,12 +3,12 @@ package com.javafortesters;
 //import com.javafortesters.CollectionsSamples;
 
 import org.junit.*;
-import org.junit.rules.Stopwatch;
+//import org.junit.rules.Stopwatch;
 import org.junit.rules.Timeout;
 import org.junit.runners.MethodSorters;
 
 import static com.javafortesters.CollectionsSamples.*;
-import static java.util.concurrent.TimeUnit.MILLISECONDS;
+//import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static org.junit.Assert.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING) //@TestMethodOrder(OrderAnnotation.class) https://www.baeldung.com/junit-5-test-order
@@ -17,8 +17,8 @@ public class CollectionsTest {
     @Rule
     public Timeout timeout = Timeout.millis(100);
 
-    @Rule
-    public Stopwatch stopwatch = new Stopwatch();
+/*    @Rule
+    public Stopwatch stopwatch = new Stopwatch();*/
 
     @BeforeClass
     public static void setup() {

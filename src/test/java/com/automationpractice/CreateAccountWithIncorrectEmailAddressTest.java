@@ -14,6 +14,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Create an account using an invalid email address
  * Not Page Object Pattern coding!
@@ -34,6 +36,7 @@ public class CreateAccountWithIncorrectEmailAddressTest {
     public void setupTest() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
     }
 
@@ -51,14 +54,14 @@ public class CreateAccountWithIncorrectEmailAddressTest {
 
         // Look for CREATE AN ACCOUNT form
         By emailInput = By.id("email_create");
-        wait.until(presenceOfElementLocated(emailInput));
+        //wait.until(presenceOfElementLocated(emailInput));
 
         // Type an Invalid/Unexpected value
         driver.findElement(emailInput).sendKeys("testIfAccountCanBeCreatedForAnIncorrectEmailInput");
 
         // Click Create an account button
         By createButton = By.id("SubmitCreate");
-        wait.until(elementToBeClickable(createButton));
+        //wait.until(elementToBeClickable(createButton));
         driver.findElement(createButton).click();
 
         // Wait for a warning message

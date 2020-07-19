@@ -13,6 +13,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
 import static junit.framework.TestCase.*;
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
 
@@ -42,6 +44,7 @@ public class MostPopularSeleniumMethodsTestCheatSheet {
     public void setupTest() {
         //driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         System.out.println("setupTest()");
     }
 

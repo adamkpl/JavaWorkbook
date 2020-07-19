@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import static junit.framework.TestCase.*;
 
@@ -40,6 +41,7 @@ public class MostPopularSeleniumMethodsTestCheatSheet2 {
     public void setupTest() {
         //driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         System.out.println("setupTest()");
     }
 
@@ -55,7 +57,7 @@ public class MostPopularSeleniumMethodsTestCheatSheet2 {
     @Test
     public void moveToElement() throws IOException {
 
-        WebDriverWait wait = new WebDriverWait(driver, 5);
+        //WebDriverWait wait = new WebDriverWait(driver, 5);
         /*
         // Polish
         WebElement playServicesMenuHoverArrow = driver.findElement(By.className("osoUAb")); //random!
@@ -75,7 +77,7 @@ public class MostPopularSeleniumMethodsTestCheatSheet2 {
 
         Actions actions = new Actions(driver);
 
-        wait.until(ExpectedConditions.visibilityOf(playServicesMenuHoverArrow));
+        //wait.until(ExpectedConditions.visibilityOf(playServicesMenuHoverArrow));
         actions.moveToElement(playServicesMenuHoverArrow);
         actions.perform();
 
