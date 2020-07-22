@@ -38,8 +38,6 @@ public class CreateAccountTest {
 
     @Before
     public void setupTest() {
-        //Given
-        navigateToAccountSignInPage();
     }
 
     @After
@@ -52,6 +50,11 @@ public class CreateAccountTest {
     @Category(SeleniumWebDriver.class)
     @Test
     public void CanRegisterAccount() throws IOException {
+        //Given
+        mainPage.
+                navigateToMainPage().
+                selectSignInLink().
+                clickSignInLink();
 
         //When
         accountSignInPage.
@@ -79,13 +82,6 @@ public class CreateAccountTest {
                 getWelcomeMessage();
                 takeScreenshot();
 
-    }
-
-    private void navigateToAccountSignInPage(){
-        mainPage.
-                navigateToMainPage().
-                selectSignInLink().
-                clickSignInLink();
     }
 
     private void takeScreenshot() throws IOException {

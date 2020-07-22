@@ -31,7 +31,7 @@ public class Characters
         */
     }
 
-    // A rightous constructor
+    // A righteous constructor
     public Characters(int powerLevel, String category, String universe, String superName, String realName, String superPowers)
     {
         this.id = 0;

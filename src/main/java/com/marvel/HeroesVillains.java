@@ -60,7 +60,7 @@ public class HeroesVillains
         // Create 1 villain, add God's bonus via method to the powerLevel
         Gods thanos = new Gods(
                 10,
-                "Villan",
+                "Villain",
                 "Marvel",
                 "Thanos",
                 "The Mad Titan Thanos",

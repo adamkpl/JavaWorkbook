@@ -38,8 +38,6 @@ public class LoginTest {
 
     @Before
     public void setupTest() {
-        //Given
-        navigateToAccountSignInPage();
     }
 
     @After
@@ -54,25 +52,24 @@ public class LoginTest {
     @Test
     public void canLoginToAccount() throws IOException {
 
+        //Given
+        mainPage
+                .navigateToMainPage()
+                .selectSignInLink()
+                .clickSignInLink();
+
         //When
-        accountSignInPage.
-                loginToAccount().
-                    withUsername("automationpractice@yopmail.com").
-                    withPassword("UnknownP@zzw0rd!").
-                clickSignInButton();
+        accountSignInPage
+                .loginToAccount()
+                    .withUsername("automationpractice@yopmail.com")
+                    .withPassword("UnknownP@zzw0rd!")
+                .clickSignInButton();
 
         //Then
-        myAccount.
-                getWelcomeMessage();
+        myAccount
+                .getWelcomeMessage();
                 takeScreenshot();
 
-    }
-
-    private void navigateToAccountSignInPage(){
-        mainPage.
-                navigateToMainPage().
-                selectSignInLink().
-                clickSignInLink();
     }
 
     private void takeScreenshot() throws IOException {
