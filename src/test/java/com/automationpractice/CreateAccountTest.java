@@ -38,6 +38,7 @@ public class CreateAccountTest {
 
     @Before
     public void setupTest() {
+        driver.manage().window().maximize();
     }
 
     @After
@@ -51,35 +52,35 @@ public class CreateAccountTest {
     @Test
     public void CanRegisterAccount() throws IOException {
         //Given
-        mainPage.
-                navigateToMainPage().
-                selectSignInLink().
-                clickSignInLink();
+        mainPage
+                .navigateToMainPage()
+                .selectSignInLink()
+                .clickSignInLink();
 
         //When
-        accountSignInPage.
-                createAnAccount().
-                    selectCreateNewAccountEmailAddressField().
-                    setRandomEmailAddress().
-                    clickCreateNewAccountButton().
-                    setRandomGender().
-                    setRandomFirstName().
-                    setRandomLastName().
-                    setRandomPassword().
-                    selectRandomDayOfBirth().
-                    selectRandomMonthOfBirth().
-                    selectRandomYearOfBirth().
-                    setRandomAddress().
-                    setRandomUSACity().
-                    selectRandomState().
-                    setRandomPostcode().
-                    setRandomMobilePhoneNumber().
-                    setRandomAddressAlias().
-                    clickRegisterButton();
+        accountSignInPage
+                .createAnAccount()
+                    .selectCreateNewAccountEmailAddressField()
+                    .setRandomEmailAddress()
+                    .clickCreateNewAccountButton()
+                    .setRandomGender()
+                    .setRandomFirstName()
+                    .setRandomLastName()
+                    .setRandomPassword()
+                    .selectRandomDayOfBirth()
+                    .selectRandomMonthOfBirth()
+                    .selectRandomYearOfBirth()
+                    .setRandomAddress()
+                    .setRandomUSACity()
+                    .selectRandomState()
+                    .setRandomPostcode()
+                    .setRandomMobilePhoneNumber()
+                    .setRandomAddressAlias()
+                    .clickRegisterButton();
 
         //Then
-        myAccount.
-                getWelcomeMessage();
+        myAccount
+                .getWelcomeMessage();
                 takeScreenshot();
 
     }

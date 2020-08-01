@@ -38,6 +38,7 @@ public class LoginTest {
 
     @Before
     public void setupTest() {
+        driver.manage().window().maximize();
     }
 
     @After

@@ -127,9 +127,14 @@ public class RegisterAccountForm extends AbstractPageObject {
     }
 
     public RegisterAccountForm setRandomGender(){
-        //todo Add exception for org.openqa.selenium.TimeoutException
-        WaitWrapper.waitForElement(getDriver(), 10, gender_male);
-        WaitWrapper.waitForElement(getDriver(), 10, gender_female);
+        WaitWrapper.waitFluentlyForElement(getDriver(), By.id("id_gender1"));
+        WaitWrapper.waitFluentlyForElement(getDriver(), By.id("id_gender2"));
+
+        //WaitWrapper.waitFluentlyForElement(getDriver(), gender_male);
+        //WaitWrapper.waitFluentlyForElement(getDriver(), gender_female);
+
+        //WaitWrapper.waitForElement(getDriver(), 10, gender_male);
+        //WaitWrapper.waitForElement(getDriver(), 10, gender_female);
 
         Random random = new Random();
         String[] gender = {"gender_male","gender_female"};
