@@ -14,7 +14,7 @@ import java.util.function.Function;
 
 /**
  * A set of WaitWrappers.
- * The goal of these methods is to add the stability to the test being performed. This will make current driver process
+ * The goal of these methods is to add stability to the test being performed. This will make the current driver process
  * to wait for a web element to appear on the page before executing further statements.
  *
  * @see <a href="https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/support/ui/FluentWait.html">FluentWait @ www.selenium.dev</a>

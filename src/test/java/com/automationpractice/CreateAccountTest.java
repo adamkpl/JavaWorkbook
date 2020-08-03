@@ -21,7 +21,7 @@ import java.io.IOException;
  * @since Beta 0.11 2020-02-07
  * @author Adam K.
  */
-//@Ignore
+@Ignore
 public class CreateAccountTest {
 
     private static WebDriver driver;

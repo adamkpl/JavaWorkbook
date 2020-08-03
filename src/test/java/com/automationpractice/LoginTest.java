@@ -21,7 +21,7 @@ import java.io.IOException;
  * @since Beta 0.1 2020-02-18
  * @author Adam K.
  */
-//@Ignore
+@Ignore
 public class LoginTest {
 
     private static WebDriver driver;
