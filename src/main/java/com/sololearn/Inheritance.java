@@ -6,7 +6,7 @@ class, it inherits all of the superclass' non-private variables and methods. */
 
 class Inheritance {
     public static void main(String[ ] args) {
-        Dog germanShepherd = new Dog(); // Creates new object of a Dog subclass and run eat method
+        Dog germanShepherd = new Dog(); // Creates new object of a Dog subclass and run a Superclass' method
         germanShepherd.showDescription();
     }
 }

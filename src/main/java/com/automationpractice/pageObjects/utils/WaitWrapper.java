@@ -12,6 +12,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.function.Function;
 
+/**
+ * A set of WaitWrappers.
+ * The goal of these methods is to add the stability to the test being performed. This will make current driver process
+ * to wait for a web element to appear on the page before executing further statements.
+ *
+ * @see <a href="https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/support/ui/FluentWait.html">FluentWait @ www.selenium.dev</a>
+ */
+
 public class WaitWrapper {
 
     public static void waitForElement(WebDriver driver, long timeoutInSeconds, WebElement element) {
@@ -20,18 +28,29 @@ public class WaitWrapper {
     }
 
     public static void waitForElement(WebDriver driver, WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public static void waitFluentlyForElement(WebDriver driver, By by) { //By by
-        // Source: https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/support/ui/FluentWait.html
+    public static void waitFluentlyForElement(WebDriver driver, By by) {
         Wait<WebDriver> wait = new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(15)) // had to be modified
-                .pollingEvery(Duration.ofSeconds(2)) // had to be modified
+                .withTimeout(Duration.ofSeconds(30))
+                .pollingEvery(Duration.ofSeconds(1))
                 .ignoring(NoSuchElementException.class);
 
-        //wait.until(ExpectedConditions.visibilityOf(webElement)); // This always fails
+        WebElement element = wait.until(new Function<WebDriver, WebElement>() {
+            public WebElement apply(WebDriver driver) {
+                return driver.findElement(by);
+            }
+        });
+
+    }
+
+    public static void waitFluentlyForElement(WebDriver driver, By by, int withTimeoutInSeconds, int pollingEveryInSeconds) {
+        Wait<WebDriver> wait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(withTimeoutInSeconds))
+                .pollingEvery(Duration.ofSeconds(pollingEveryInSeconds))
+                .ignoring(NoSuchElementException.class);
 
         WebElement element = wait.until(new Function<WebDriver, WebElement>() {
             public WebElement apply(WebDriver driver) {

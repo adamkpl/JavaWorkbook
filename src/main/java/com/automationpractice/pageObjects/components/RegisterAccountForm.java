@@ -232,6 +232,8 @@ public class RegisterAccountForm extends AbstractPageObject {
     }
 
     public RegisterAccountForm selectDayOfBirth(int dayOfBirth){
+        WaitWrapper.waitFluentlyForElement(getDriver(), By.id("days"));
+
         dobDay = new Select(getDriver().findElement(By.id("days")));
         dobDay.isMultiple();
         dobDay.selectByIndex(dayOfBirth);
@@ -240,6 +242,8 @@ public class RegisterAccountForm extends AbstractPageObject {
     }
 
     public RegisterAccountForm selectRandomDayOfBirth(){
+        WaitWrapper.waitFluentlyForElement(getDriver(), By.id("days"));
+
         dobDay = new Select(getDriver().findElement(By.id("days")));
         dobDay.isMultiple();
 
@@ -257,6 +261,8 @@ public class RegisterAccountForm extends AbstractPageObject {
     }
 
     public RegisterAccountForm selectMonthOfBirth(int monthOfBirth){
+        WaitWrapper.waitFluentlyForElement(getDriver(), By.id("months"));
+
         dobMonth = new Select(getDriver().findElement(By.id("months")));
         dobMonth.isMultiple();
         dobMonth.selectByIndex(monthOfBirth);
@@ -265,6 +271,8 @@ public class RegisterAccountForm extends AbstractPageObject {
     }
 
     public RegisterAccountForm selectRandomMonthOfBirth(){
+        WaitWrapper.waitFluentlyForElement(getDriver(), By.id("months"));
+
         dobMonth = new Select(getDriver().findElement(By.id("months")));
         dobMonth.isMultiple();
 
@@ -282,6 +290,8 @@ public class RegisterAccountForm extends AbstractPageObject {
     }
 
     public RegisterAccountForm selectYearOfBirth(int yearOfBirth){
+        WaitWrapper.waitFluentlyForElement(getDriver(), By.id("years"));
+
         dobYear = new Select(getDriver().findElement(By.id("years")));
         dobYear.isMultiple();
         dobYear.selectByIndex(yearOfBirth);
@@ -290,6 +300,8 @@ public class RegisterAccountForm extends AbstractPageObject {
     }
 
     public RegisterAccountForm selectRandomYearOfBirth(){
+        WaitWrapper.waitFluentlyForElement(getDriver(), By.id("years"));
+
         dobYear = new Select(getDriver().findElement(By.id("years")));
         dobYear.isMultiple();
 
@@ -348,6 +360,8 @@ public class RegisterAccountForm extends AbstractPageObject {
     }
 
     public RegisterAccountForm selectState(int aState){
+        WaitWrapper.waitFluentlyForElement(getDriver(), By.id("id_state"));
+
         state = new Select(getDriver().findElement(By.id("id_state")));
         state.isMultiple();
         state.selectByIndex(aState);
@@ -356,6 +370,8 @@ public class RegisterAccountForm extends AbstractPageObject {
     }
 
     public RegisterAccountForm selectRandomState(){
+        WaitWrapper.waitFluentlyForElement(getDriver(), By.id("id_state"));
+
         state = new Select(getDriver().findElement(By.id("id_state")));
         state.isMultiple();
 
@@ -397,6 +413,8 @@ public class RegisterAccountForm extends AbstractPageObject {
 
     public RegisterAccountForm selectCountry(int aCountry){
         // The United States value is automatically selected by default
+        WaitWrapper.waitFluentlyForElement(getDriver(), By.id("id_country"));
+
         country = new Select(getDriver().findElement(By.id("id_country")));
         country.isMultiple();
         country.selectByIndex(aCountry);
@@ -405,6 +423,9 @@ public class RegisterAccountForm extends AbstractPageObject {
 
     public RegisterAccountForm selectRandomCountry(){
         // The United States value is automatically selected by default
+
+        WaitWrapper.waitFluentlyForElement(getDriver(), By.id("id_country"));
+
         country = new Select(getDriver().findElement(By.id("id_country")));
         country.isMultiple();
 
