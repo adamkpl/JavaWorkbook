@@ -1,7 +1,7 @@
 package com.marvel;
 
 /**
- * Heroes & Villans of Marvel
+ * Heroes & Villains of Marvel
  * @version 1.0 2019-08-20
  * @author Adam K.
  */
