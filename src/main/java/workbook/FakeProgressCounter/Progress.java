@@ -60,20 +60,20 @@ public class Progress {
         setUnits(0);
 
         // Start counting
-        System.out.println(getStartMessage() + " " + ("(unit: ") + getProgressIndicator() + ")" + ": ");
+        System.out.println(getStartMessage() + " " + ("(units: ") + getProgressIndicator() + ")" + ": ");
 
         for (int i = 0; i <= getRefreshInterval(); i++) {
             waitToRefreshProgress();
             clearConsole();
 
-            System.out.print(getUnits() + " ");
             units = getUnits() + getMeterInterval();
+            System.out.print(units);
 
             // Finish progress
             //todo should not exceed DEFAULT_MAX_THRESHOLD
             if (units >= DEFAULT_MAX_THRESHOLD) {
                 //todo should be able to change the completion message
-                setUnits(100);
+                setUnits(DEFAULT_MAX_THRESHOLD);
                 clearConsole();
                 System.out.print(getUnits() + ". DONE!\n");
                 break;
@@ -83,7 +83,10 @@ public class Progress {
     }
 
     private static void waitToRefreshProgress() throws InterruptedException {
-        Thread.sleep(125);
+        /* Note that when the value is low (e.g 125 milis), and you setMeterInterval to 1, you may not see the
+        progress increment by 1. You will notice that the values jump by 2 e.g 1-3-5, but if you modify the milis to a
+        higher value e.g to 250 milis, this issue dissapears. */
+        Thread.sleep(100);
     }
 
     private static void waitToRefreshProgress(long milliseconds) throws InterruptedException {
@@ -102,8 +105,7 @@ public class Progress {
     }
 
     private void clearConsole() {
-        int x = getUnitsLength(getUnits());
-        typeBackspaceNtimes(x);
+        typeBackspaceNtimes(getUnitsLength(getUnits()));
     }
 
 }

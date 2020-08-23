@@ -15,7 +15,7 @@ public class MainFakeProcess {
         Progress progress = new Progress();
 
         // Settings
-        progress.setMeterInterval(5);
+        progress.setMeterInterval(3);
         progress.setStartMessage(ProgressProcessNames.LOADING);
         progress.setProgressIndicator(ProgressIndicators.PERCENT);
 
@@ -26,7 +26,7 @@ public class MainFakeProcess {
         Progress progress2 = new Progress();
 
         // Settings
-        progress2.setMeterInterval(9);
+        progress2.setMeterInterval(5);
         progress2.setStartMessage(ProgressProcessNames.FINISHING);
         progress2.setProgressIndicator(ProgressIndicators.TASK);
 
@@ -35,7 +35,7 @@ public class MainFakeProcess {
         // With Builder Class
 
         Progress progress3 = ProgressBuilder.buildProgress()
-                .withMeterInterval(25)
+                .withMeterInterval(9)
                 .withProgressIndicator(ProgressIndicators.STEP)
                 .withStartMessage(ProgressProcessNames.COMPLETING)
                 .start();
