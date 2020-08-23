@@ -70,11 +70,10 @@ public class Progress {
             System.out.print(units);
 
             // Finish progress
-            //todo should not exceed DEFAULT_MAX_THRESHOLD
             if (units >= DEFAULT_MAX_THRESHOLD) {
-                //todo should be able to change the completion message
                 setUnits(DEFAULT_MAX_THRESHOLD);
                 clearConsole();
+                //todo should be able to change the completion message
                 System.out.print(getUnits() + ". DONE!\n");
                 break;
             }
