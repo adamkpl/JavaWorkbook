@@ -10,7 +10,7 @@ package workbook.FakeProgressCounter;
 public class MainFakeProcess {
     public static void main(String[] args) throws InterruptedException {
 
-        // Without Builder
+        // Without Fluent Builder pattern
 
         Progress progress = new Progress();
         progress.setMeterInterval(3);
@@ -24,7 +24,7 @@ public class MainFakeProcess {
         progress2.setProgressIndicator(ProgressIndicators.TASK);
         progress2.start();
 
-        // With Builder Class
+        // With Fluent Builder pattern
 
         Progress progress3 = ProgressBuilder.buildProgress()
                 .withMeterInterval(9)
