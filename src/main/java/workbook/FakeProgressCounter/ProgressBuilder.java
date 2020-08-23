@@ -11,7 +11,7 @@ public final class ProgressBuilder extends Progress {
     private String startMessage;
     private String progressIndicator;
 
-    public static ProgressBuilder ProgressBuilder() {
+    public static ProgressBuilder buildProgress() {
         //super();
         return new ProgressBuilder();
     }
