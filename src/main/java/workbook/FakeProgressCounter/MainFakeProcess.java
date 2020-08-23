@@ -27,6 +27,20 @@ public class MainFakeProcess {
 
         // todo
         // With Builder Class
+        // Throws exception
+/*
+
+        ProgressBuilder progressBuilder = new ProgressBuilder();
+
+        // Settings
+        progressBuilder
+                .withMeterInterval(7)
+                .withProgressIndicator(ProgressIndicators.STEP)
+                .withStartMessage(ProgressProcessNames.VERIFYING);
+
+        progressBuilder.build();
+        progressBuilder.start();
+*/
 
     }
 }

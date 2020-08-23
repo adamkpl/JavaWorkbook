@@ -6,6 +6,9 @@ public class Progress {
     private String startMessage;
     private String progressIndicator;
 
+    Progress() {
+    }
+
     public String getProgressIndicator() {
         return progressIndicator;
     }
