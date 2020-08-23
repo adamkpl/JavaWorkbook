@@ -37,8 +37,7 @@ public class MainFakeProcess {
         Progress progress3 = ProgressBuilder.ProgressBuilder()
                 .withMeterInterval(25)
                 .withProgressIndicator(ProgressIndicators.STEP)
-                .withStartMessage(ProgressProcessNames.COMPLETING)
-                .build();
+                .withStartMessage(ProgressProcessNames.COMPLETING);
 
         progress3.start();
     }
