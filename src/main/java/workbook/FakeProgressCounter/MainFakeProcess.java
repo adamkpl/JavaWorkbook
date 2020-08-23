@@ -39,7 +39,5 @@ public class MainFakeProcess {
                 .withProgressIndicator(ProgressIndicators.STEP)
                 .withStartMessage(ProgressProcessNames.COMPLETING)
                 .start();
-
-        //progress3.start();
     }
 }
