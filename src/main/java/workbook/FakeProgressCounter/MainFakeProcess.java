@@ -1,5 +1,12 @@
 package workbook.FakeProgressCounter;
 
+/**
+ * Fake "progress bar"
+ * Simulates fake ongoing progress.
+ * @version 1.0 2020-08-23
+ * @author Adam K.
+ */
+
 public class MainFakeProcess {
     public static void main(String[] args) throws InterruptedException {
 
@@ -33,7 +40,7 @@ public class MainFakeProcess {
         progressBuilder
                 .withMeterInterval(25)
                 .withProgressIndicator(ProgressIndicators.STEP)
-                .withStartMessage(ProgressProcessNames.VERIFYING);
+                .withStartMessage(ProgressProcessNames.COMPLETING);
 
         progressBuilder.build();
         progressBuilder.start();
