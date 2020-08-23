@@ -1,7 +1,5 @@
 package workbook.FakeProgressCounter;
 
-import com.sun.istack.internal.NotNull;
-
 public final class ProgressBuilder extends Progress {
     private int meterInterval;
     private String startMessage;
@@ -9,6 +7,21 @@ public final class ProgressBuilder extends Progress {
 
     public ProgressBuilder() {
         super();
+    }
+
+    @Override
+    public int getMeterInterval() {
+        return meterInterval;
+    }
+
+    @Override
+    public String getStartMessage() {
+        return startMessage;
+    }
+
+    @Override
+    public String getProgressIndicator() {
+        return progressIndicator;
     }
 
     public ProgressBuilder withMeterInterval(int meterInterval) {
