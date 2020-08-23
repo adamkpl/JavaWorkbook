@@ -1,13 +1,13 @@
 package workbook.FakeProgressCounter;
 
-/**
- * @param DEFAULT_MAX_THRESHOLD is the limit of the progress indicator e.g 100%.
- * @param meterInterval will show updated value in interval e.g 5%, 10%, 15% and so on until DEFAULT_MAX_THRESHOLD is reached.
- * @param startMessage indicates the type of progress. @See ProgressProcessNames.
- * @param progressIndicator e.g percents, steps, tasks performed/completed. @See ProgressIndicators.
- */
-
 public class Progress {
+
+    /**
+     * @param DEFAULT_MAX_THRESHOLD is the limit of the progress indicator e.g 100%.
+     * @param meterInterval will show updated value in interval e.g 5%, 10%, 15% and so on until DEFAULT_MAX_THRESHOLD is reached.
+     * @param startMessage indicates the type of progress. @See ProgressProcessNames.
+     * @param progressIndicator e.g percents, steps, tasks performed/completed. @See ProgressIndicators.
+     */
 
     public final static Integer DEFAULT_MAX_THRESHOLD = 100;
     private int meterInterval;
