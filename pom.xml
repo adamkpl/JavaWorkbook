@@ -167,5 +167,11 @@
             <artifactId>httpclient</artifactId>
             <version>${org.apache.httpcomponents}</version>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 </project>

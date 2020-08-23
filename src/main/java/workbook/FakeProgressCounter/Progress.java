@@ -83,10 +83,10 @@ public class Progress {
     }
 
     private static void waitToRefreshProgress() throws InterruptedException {
-        /* Note that when the value is low (e.g 125 milis), and you setMeterInterval to 1, you may not see the
-        progress increment by 1. You will notice that the values jump by 2 e.g 1-3-5, but if you modify the milis to a
-        higher value e.g to 250 milis, this issue dissapears. */
-        Thread.sleep(100);
+        /* Note that when the value is low (e.g 125 millis), and you setMeterInterval to 1, you may not see the
+        progress increment by 1. You will notice that the values jump by 2 e.g 1-3-5, but if you modify the millis to a
+        higher value e.g to 250 millis, this issue disappears. */
+        Thread.sleep(125);
     }
 
     private static void waitToRefreshProgress(long milliseconds) throws InterruptedException {
@@ -94,18 +94,17 @@ public class Progress {
     }
 
     private int getUnitsLength(int units) {
-        this.units = units;
         return String.valueOf(units).length();
     }
 
-    private void typeBackspaceNtimes(int getUnitsLength) {
-        for (int i = 0; i <= getUnitsLength; i++) {
+    private void insertBackspace(int nTimes) {
+        for (int i = 0; i <= nTimes; i++) {
             System.out.print("\b");
         }
     }
 
     private void clearConsole() {
-        typeBackspaceNtimes(getUnitsLength(getUnits()));
+        insertBackspace(getUnitsLength(getUnits()));
     }
 
 }

@@ -12,7 +12,6 @@ public final class ProgressBuilder extends Progress {
     private String progressIndicator;
 
     public static ProgressBuilder buildProgress() {
-        //super();
         return new ProgressBuilder();
     }
 

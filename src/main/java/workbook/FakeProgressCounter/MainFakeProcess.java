@@ -13,31 +13,23 @@ public class MainFakeProcess {
         // Without Builder
 
         Progress progress = new Progress();
-
-        // Settings
         progress.setMeterInterval(3);
         progress.setStartMessage(ProgressProcessNames.LOADING);
         progress.setProgressIndicator(ProgressIndicators.PERCENT);
-
-        // Start
         progress.start();
 
-
         Progress progress2 = new Progress();
-
-        // Settings
         progress2.setMeterInterval(5);
         progress2.setStartMessage(ProgressProcessNames.FINISHING);
         progress2.setProgressIndicator(ProgressIndicators.TASK);
-
         progress2.start();
 
         // With Builder Class
 
         Progress progress3 = ProgressBuilder.buildProgress()
                 .withMeterInterval(9)
-                .withProgressIndicator(ProgressIndicators.STEP)
                 .withStartMessage(ProgressProcessNames.COMPLETING)
+                .withProgressIndicator(ProgressIndicators.STEP)
                 .start();
     }
 }
