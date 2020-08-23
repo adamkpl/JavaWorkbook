@@ -55,7 +55,8 @@ public final class ProgressBuilder extends Progress {
     }
 
     @Override
-    public void start() throws InterruptedException {
+    public Progress start() throws InterruptedException {
         super.start();
+        return this;
     }
 }

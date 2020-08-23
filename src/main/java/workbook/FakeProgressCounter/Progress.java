@@ -45,7 +45,7 @@ public class Progress {
         return DEFAULT_MAX_THRESHOLD / getMeterInterval();
     }
 
-    public void start() throws InterruptedException {
+    public Progress start() throws InterruptedException {
 
         // Init progress, always from 0
         int units = 0;
@@ -67,6 +67,7 @@ public class Progress {
                 break;
             }
         }
+        return this;
     }
 
     private static void refreshProgress() throws InterruptedException {
