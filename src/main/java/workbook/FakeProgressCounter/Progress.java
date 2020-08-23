@@ -13,8 +13,17 @@ public class Progress {
     private int meterInterval;
     private String startMessage;
     private String progressIndicator;
+    private int units;
 
     Progress() {
+    }
+
+    public int getUnits() {
+        return units;
+    }
+
+    public void setUnits(int units) {
+        this.units = units;
     }
 
     public String getProgressIndicator() {
@@ -48,34 +57,53 @@ public class Progress {
     public Progress start() throws InterruptedException {
 
         // Init progress, always from 0
-        int units = 0;
+        setUnits(0);
 
         // Start counting
-        //todo clear progress result, and put new value
-        System.out.print(getStartMessage() + " " + ("(unit: ") + getProgressIndicator() + ")" + ": ");
+        System.out.println(getStartMessage() + " " + ("(unit: ") + getProgressIndicator() + ")" + ": ");
 
         for (int i = 0; i <= getRefreshInterval(); i++) {
-            refreshProgress();
-            System.out.print(units + " ");
-            units = units + getMeterInterval();
+            waitToRefreshProgress();
+            clearConsole();
+
+            System.out.print(getUnits() + " ");
+            units = getUnits() + getMeterInterval();
 
             // Finish progress
             //todo should not exceed DEFAULT_MAX_THRESHOLD
-            if (units > DEFAULT_MAX_THRESHOLD) {
+            if (units >= DEFAULT_MAX_THRESHOLD) {
                 //todo should be able to change the completion message
-                System.out.println("\nDONE!");
+                setUnits(100);
+                clearConsole();
+                System.out.print(getUnits() + ". DONE!\n");
                 break;
             }
         }
         return this;
     }
 
-    private static void refreshProgress() throws InterruptedException {
-        Thread.sleep(100);
+    private static void waitToRefreshProgress() throws InterruptedException {
+        Thread.sleep(125);
     }
 
-    private static void refreshProgress(long milliseconds) throws InterruptedException {
+    private static void waitToRefreshProgress(long milliseconds) throws InterruptedException {
         Thread.sleep(milliseconds);
+    }
+
+    private int getUnitsLength(int units) {
+        this.units = units;
+        return String.valueOf(units).length();
+    }
+
+    private void typeBackspaceNtimes(int getUnitsLength) {
+        for (int i = 0; i <= getUnitsLength; i++) {
+            System.out.print("\b");
+        }
+    }
+
+    private void clearConsole() {
+        int x = getUnitsLength(getUnits());
+        typeBackspaceNtimes(x);
     }
 
 }
