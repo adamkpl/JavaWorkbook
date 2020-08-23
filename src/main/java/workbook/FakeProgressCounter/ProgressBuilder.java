@@ -1,12 +1,19 @@
 package workbook.FakeProgressCounter;
 
+/**
+ * Inner Static Fluent Builder pattern.
+ * @author      devcave.pl
+ * @see         <a href="https://devcave.pl/effective-java/wzorzec-projektowy-builder">Wzorzec projektowy Builder</a>
+ */
+
 public final class ProgressBuilder extends Progress {
     private int meterInterval;
     private String startMessage;
     private String progressIndicator;
 
-    public ProgressBuilder() {
-        super();
+    public static ProgressBuilder ProgressBuilder() {
+        //super();
+        return new ProgressBuilder();
     }
 
     @Override

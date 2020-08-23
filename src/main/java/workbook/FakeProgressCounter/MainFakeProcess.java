@@ -34,15 +34,12 @@ public class MainFakeProcess {
 
         // With Builder Class
 
-        ProgressBuilder progressBuilder = new ProgressBuilder();
-
-        // Settings
-        progressBuilder
+        Progress progress3 = ProgressBuilder.ProgressBuilder()
                 .withMeterInterval(25)
                 .withProgressIndicator(ProgressIndicators.STEP)
-                .withStartMessage(ProgressProcessNames.COMPLETING);
+                .withStartMessage(ProgressProcessNames.COMPLETING)
+                .build();
 
-        progressBuilder.start();
-
+        progress3.start();
     }
 }
