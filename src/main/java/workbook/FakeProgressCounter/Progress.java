@@ -51,6 +51,7 @@ public class Progress {
     }
 
     public int getRefreshInterval() {
+        //todo Exception checking for getMeterInterval() when meterInterval == 0
         return DEFAULT_MAX_THRESHOLD / getMeterInterval();
     }
 
