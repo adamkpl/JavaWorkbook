@@ -19,7 +19,7 @@ public class MainFakeProcess {
         progress.start();
 
         Progress progress2 = new Progress();
-        progress2.setMeterInterval(5);
+        progress2.setMeterInterval(6);
         progress2.setStartMessage(ProgressProcessNames.FINISHING);
         progress2.setProgressIndicator(ProgressIndicators.TASK);
         progress2.start();
@@ -33,9 +33,15 @@ public class MainFakeProcess {
                 .start();
 
         Progress progress4 = ProgressBuilder.buildProgress()
-                .withMeterInterval(13)
+                .withMeterInterval(12)
                 .withStartMessage(ProgressProcessNames.PROCESSING)
                 .withProgressIndicator(ProgressIndicators.THREAD)
+                .start();
+
+        Progress progress5 = ProgressBuilder.buildProgress()
+                .withMeterInterval(15)
+                .withStartMessage(ProgressProcessNames.COMPILING)
+                .withProgressIndicator(ProgressIndicators.SOURCE)
                 .start();
     }
 }
