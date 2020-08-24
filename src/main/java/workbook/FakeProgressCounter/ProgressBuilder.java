@@ -17,6 +17,10 @@ public final class ProgressBuilder extends Progress {
 
     @Override
     public int getMeterInterval() {
+        if (meterInterval == 0) {
+            //meterInterval = 1;
+            throw new ArithmeticException("0 not allowed. Minimum 1 is allowed.");
+        }
         return meterInterval;
     }
 

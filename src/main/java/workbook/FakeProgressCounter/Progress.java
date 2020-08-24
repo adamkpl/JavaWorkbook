@@ -43,6 +43,10 @@ public class Progress {
     }
 
     public int getMeterInterval() {
+        if (meterInterval == 0) {
+            //meterInterval = 1;
+            throw new ArithmeticException("0 not allowed. Minimum 1 is allowed.");
+        }
         return meterInterval;
     }
 
@@ -51,7 +55,6 @@ public class Progress {
     }
 
     public int getRefreshInterval() {
-        //todo Exception checking for getMeterInterval() when meterInterval == 0
         return DEFAULT_MAX_THRESHOLD / getMeterInterval();
     }
 
