@@ -31,5 +31,11 @@ public class MainFakeProcess {
                 .withStartMessage(ProgressProcessNames.COMPLETING)
                 .withProgressIndicator(ProgressIndicators.STEP)
                 .start();
+
+        Progress progress4 = ProgressBuilder.buildProgress()
+                .withMeterInterval(13)
+                .withStartMessage(ProgressProcessNames.PROCESSING)
+                .withProgressIndicator(ProgressIndicators.THREAD)
+                .start();
     }
 }
