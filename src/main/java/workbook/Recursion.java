@@ -2,6 +2,7 @@ package workbook;
 
 /**
  * Recursion example
+ * @version 1.0 2020-08-25
  * @see <a href="https://www.youtube.com/watch?v=fpuWkZs51aM">Intermediate Java Tutorial - 3 - Recursion</a>
  * @see <a href="https://www.matemaks.pl/silnia.html">Silnia - definicja, przykłady i metody liczenia</a>
  *
@@ -22,20 +23,22 @@ public class Recursion {
             e) 10!=1⋅2⋅3...⋅9⋅10=3628800
             f) 17!=1⋅2⋅3...⋅16⋅17=355687428096000
         */
-
-        System.out.println(factorial(3));
-        System.out.println(factorial(4));
-        System.out.println(factorial(5));
-        System.out.println(factorial(6));
-        System.out.println(factorial(10));
-        System.out.println(factorial(17));
+        long[] numbers = {3,4,5,6,7,10,17};
+        calculateFactorialsAndPrint(numbers);
     }
 
-    private static long factorial(long n) {
+    public static long calculateFactorial(long n) {
         if (n <= 1) {
             return 1;
         } else {
-            return n * factorial(n - 1);
+            return n * calculateFactorial(n - 1);
+        }
+    }
+
+    private static void calculateFactorialsAndPrint(long[] n) {
+        for (int i = 0; i < n.length; i++) {
+            long x = n[i];
+            System.out.println(calculateFactorial(x));
         }
     }
 
