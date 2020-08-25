@@ -23,20 +23,17 @@ public class RecursionTest {
     }
 
     // @Parameters annotation marks this method as parameters provider
-    // todo throws java.lang.IllegalArgumentException: wrong number of arguments???
     @Parameterized.Parameters
     public static Iterable<Object[]> testData() {
         return Arrays.asList(new Object[][] {
-                {3},{6}
-                /*{-1},{1}
-                ,{0},{1}
-                ,{1},{1}*/
+                {6,3}
+                ,{1,-1}
+                ,{1,0}
+                ,{1,1}
                 //todo add more values
         });
     }
 
-
-    @Ignore
     @Test
     public void shouldOutputValidResultsWithARecursiveMethod() {
         assertEquals(expectedValue, Recursion.calculateFactorial(testedValue));
