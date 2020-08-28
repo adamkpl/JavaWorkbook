@@ -1,8 +1,10 @@
 package workbook.FakeProgressCounter;
 
 /**
- * Inner Static Fluent Builder pattern.
- * @author      devcave.pl
+ * A Fluent Builder class.
+ * Powered by Inner Static Fluent Builder pattern.
+ * @author      Adam K.
+ * @since       23.08.2020
  * @see         <a href="https://devcave.pl/effective-java/wzorzec-projektowy-builder">Wzorzec projektowy Builder</a>
  */
 
