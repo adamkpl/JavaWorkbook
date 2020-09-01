@@ -36,8 +36,7 @@ public class Recursion {
     }
 
     private static void calculateFactorialsAndPrint(long[] n) {
-        for (int i = 0; i < n.length; i++) {
-            long x = n[i];
+        for (long x : n) {
             System.out.println(calculateFactorial(x));
         }
     }
