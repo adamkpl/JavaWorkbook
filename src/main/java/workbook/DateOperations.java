@@ -13,16 +13,29 @@ public class DateOperations {
 
 
     private static String DD_MM_YYYY = "dd/MM/yyyy";
-    //private static String YYYY_MM_DD = "yyyy/MM/dd";
+    private static String YYYY_MM_DD = "yyyy/MM/dd";
     private static String dd_MMMM_yyyy_hh_mm = "dd MMMMM yyyy hh:mm"; // force a strict date format
     private static final String DATE_OF_ESTABLISHMENT = "01/10/1991"; // dd/MM/yyyy
+
     private static final String TODAY = java.text.DateFormat
             .getDateTimeInstance(DateFormat.LONG, DateFormat.SHORT, Locale.UK)
             .format(Calendar.getInstance().getTime());
 
+    private static final String TODAY2 = java.text.DateFormat
+            .getDateTimeInstance()
+            .format(Calendar.getInstance().getTime());
+
     public static void main(String[] args) throws ParseException {
-        System.out.println(TODAY);
-        System.out.println(parseDate(TODAY, dd_MMMM_yyyy_hh_mm));
+        System.out.println(TODAY); // 01 September 2020 14:07 // "dd MMMMM yyyy hh:mm"
+        System.out.println(TODAY2); // Sep 1, 2020 2:07:34 PM
+
+        System.out.println("This works on ENG, but not POL: ");
+        System.out.println(parseDate(TODAY, "dd MMMMM yyyy hh:mm"));
+
+        /*
+        System.out.println("This works on POL, but not ENG: ");
+        System.out.println(parseDate(TODAY2, "M dd, yyyy hh:mm:ss a"));
+        */
     }
 
 
