@@ -10,15 +10,23 @@ public class MyAccount extends AbstractPageObject {
     @FindBy(xpath = "//*[contains(text(),'Welcome to your account')]")
     private WebElement welcomeMessage;
 
+    @FindBy(xpath = "//div[@class='alert alert-danger'][contains(.,'Authentication failed.')]")
+    private WebElement authErrorMessage;
+
     public MyAccount(WebDriver driver) {
         super(driver);
     }
 
     public WebElement getWelcomeMessage(){
-        //WaitWrapper.waitForElement(getDriver(),30,welcomeMessage);
         WaitWrapper.waitForElement(getDriver(), welcomeMessage);
-
         System.out.println("Success! Welcome to your account :-)");
         return welcomeMessage;
     }
+
+    public WebElement getAuthErrorMessage(){
+        WaitWrapper.waitForElement(getDriver(), authErrorMessage);
+        System.out.println("Error! Authentication failed :-(");
+        return authErrorMessage;
+    }
+
 }

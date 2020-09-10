@@ -1,24 +1,22 @@
 package com.automationpractice;
 
-import com.SeleniumWebDriver;
 import com.automationpractice.pageObjects.pages.AccountSignInPage;
 import com.automationpractice.pageObjects.pages.MainPage;
 import com.automationpractice.pageObjects.pages.MyAccount;
 import com.automationpractice.pageObjects.utils.TakeScreenshotWrapper;
+import com.automationpractice.pageObjects.utils.Url;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.*;
-
-import org.junit.experimental.categories.Category;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-
-import java.io.IOException;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 /**
  * Login to an Account
  * Page Object Pattern with "Fluent API"
- * @since Beta 0.1 2020-02-18
+ * @since 2020-02-18
  * @author Adam K.
  */
 @Ignore
@@ -39,42 +37,69 @@ public class LoginTest {
     @Before
     public void setupTest() {
         driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
     }
 
-    @After
-    public void teardown() {
+    @AfterClass
+    public static void teardown() {
         if (driver != null) {
             driver.close();
             driver.quit();
         }
     }
 
-    @Category(SeleniumWebDriver.class)
     @Test
-    public void canLoginToAccount() throws IOException {
-
-        //Given
+    public void shouldLoginToAccount() {
+        // Given
         mainPage
                 .navigateToMainPage()
                 .selectSignInLink()
                 .clickSignInLink();
 
-        //When
+        // When
         accountSignInPage
                 .loginToAccount()
-                    .withUsername("automationpractice@yopmail.com")
-                    .withPassword("UnknownP@zzw0rd!")
+                .withUsername("automationpractice@yopmail.com")
+                .withPassword("UnknownP@zzw0rd!")
                 .clickSignInButton();
 
-        //Then
+        // Then
         myAccount
                 .getWelcomeMessage();
-                takeScreenshot();
+        takeScreenshotLoginSuccess();
+        assertEquals("URL = myAccount", Url.MY_ACCOUNT, driver.getCurrentUrl());
 
     }
 
-    private void takeScreenshot() throws IOException {
-        TakeScreenshotWrapper.takeScreenshot(driver,"welcomeBackToYourAccount.png");
+    @Test
+    public void shouldFailToLoginToAccount() {
+        // Given
+        mainPage
+                .navigateToMainPage()
+                .selectSignInLink()
+                .clickSignInLink();
+
+        // When
+        accountSignInPage
+                .loginToAccount()
+                .withUsername("automationpractice@yopmail.com")
+                .withPassword("ThisPasswordIsInvalid")
+                .clickSignInButton();
+
+        // Then
+        myAccount
+                .getAuthErrorMessage();
+        takeScreenshotLoginFail();
+        assertNotEquals("URL != myAccount", Url.MY_ACCOUNT, driver.getCurrentUrl());
+
+    }
+
+    private void takeScreenshotLoginSuccess() {
+        TakeScreenshotWrapper.takeScreenshot(driver,"LoginSuccess.png");
+    }
+
+    private void takeScreenshotLoginFail() {
+        TakeScreenshotWrapper.takeScreenshot(driver,"LoginFail.png");
     }
 
 }

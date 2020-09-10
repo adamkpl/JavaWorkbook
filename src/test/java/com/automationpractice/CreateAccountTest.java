@@ -1,24 +1,21 @@
 package com.automationpractice;
 
-import com.SeleniumWebDriver;
 import com.automationpractice.pageObjects.pages.AccountSignInPage;
 import com.automationpractice.pageObjects.pages.MainPage;
 import com.automationpractice.pageObjects.pages.MyAccount;
 import com.automationpractice.pageObjects.utils.TakeScreenshotWrapper;
+import com.automationpractice.pageObjects.utils.Url;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.*;
-
-import org.junit.experimental.categories.Category;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-
-import java.io.IOException;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Create an account
  * Page Object Pattern with "Fluent API"
- * @since Beta 0.11 2020-02-07
+ * @since 2020-02-07
  * @author Adam K.
  */
 @Ignore
@@ -39,54 +36,99 @@ public class CreateAccountTest {
     @Before
     public void setupTest() {
         driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
     }
 
-    @After
-    public void teardown() {
+    @AfterClass
+    public static void teardown() {
         if (driver != null) {
             driver.close();
             driver.quit();
         }
     }
-    @Category(SeleniumWebDriver.class)
+
     @Test
-    public void CanRegisterAccount() throws IOException {
-        //Given
+    public void shouldRegisterAccountWithRequiredFieldsFilledOnlyWithValidInputData() {
+        // Given
         mainPage
                 .navigateToMainPage()
                 .selectSignInLink()
                 .clickSignInLink();
 
-        //When
+        // When
         accountSignInPage
                 .createAnAccount()
-                    .selectCreateNewAccountEmailAddressField()
-                    .setRandomEmailAddress()
-                    .clickCreateNewAccountButton()
-                    .setRandomGender()
-                    .setRandomFirstName()
-                    .setRandomLastName()
-                    .setRandomPassword()
-                    .selectRandomDayOfBirth()
-                    .selectRandomMonthOfBirth()
-                    .selectRandomYearOfBirth()
-                    .setRandomAddress()
-                    .setRandomUSACity()
-                    .selectRandomState()
-                    .setRandomPostcode()
-                    .setRandomMobilePhoneNumber()
-                    .setRandomAddressAlias()
-                    .clickRegisterButton();
+                .setRandomEmailAddress()
+                .clickCreateAccountButton()
+                .setRandomFirstName()
+                .setRandomLastName()
+                .setRandomPassword()
+                .setRandomAddress()
+                .setRandomCity()
+                .selectRandomState()
+                .setRandomPostcode()
+                .selectRandomCountry()
+                .setRandomMobilePhoneNumber()
+                .setRandomAddressAlias()
+                .clickRegisterButton();
 
-        //Then
+        // Then
         myAccount
                 .getWelcomeMessage();
-                takeScreenshot();
+        takeScreenshotMinimum();
+        assertEquals("URL = myAccount", Url.MY_ACCOUNT, driver.getCurrentUrl());
 
     }
 
-    private void takeScreenshot() throws IOException {
-        TakeScreenshotWrapper.takeScreenshot(driver,"welcomeMessageMyAccount.png");
+
+    @Test
+    public void shouldRegisterAccountWithAllFieldsFilledWithValidInputData() {
+        // Given
+        mainPage
+                .navigateToMainPage()
+                .selectSignInLink()
+                .clickSignInLink();
+
+        // When
+        accountSignInPage
+                .createAnAccount()
+                .setRandomEmailAddress()
+                .clickCreateAccountButton()
+                .setRandomGender()
+                .setRandomFirstName()
+                .setRandomLastName()
+                .setRandomPassword()
+                .selectRandomDayOfBirth()
+                .selectRandomMonthOfBirth()
+                .selectRandomYearOfBirth()
+                .checkNewsletter()
+                .checkSpecialOffers()
+                .setRandomCompany()
+                .setRandomAddress()
+                .setRandomCity()
+                .selectRandomState()
+                .setRandomPostcode()
+                .selectRandomCountry()
+                .setRandomAdditionalInformation()
+                .setRandomPhoneNumber()
+                .setRandomMobilePhoneNumber()
+                .setRandomAddressAlias()
+                .clickRegisterButton();
+
+        // Then
+        myAccount
+                .getWelcomeMessage();
+        takeScreenshotMaximum();
+        assertEquals("URL = myAccount", Url.MY_ACCOUNT, driver.getCurrentUrl());
+
+    }
+
+    private void takeScreenshotMinimum() {
+        TakeScreenshotWrapper.takeScreenshot(driver,"RegisterAccountMinimum_Success.png");
+    }
+
+    private void takeScreenshotMaximum() {
+        TakeScreenshotWrapper.takeScreenshot(driver,"RegisterAccountMaximum_Success.png");
     }
 
 }
