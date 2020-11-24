@@ -28,6 +28,7 @@
         <net.andreinc.mockneat.version>0.3.9</net.andreinc.mockneat.version>
         <com.googlecode.json-simple>1.1.1</com.googlecode.json-simple>
         <org.apache.httpcomponents>4.5.12</org.apache.httpcomponents>
+        <org.apache.logging.log4j>2.14.0</org.apache.logging.log4j>
     </properties>
 
     <build>
@@ -166,6 +167,16 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>${org.apache.httpcomponents}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${org.apache.logging.log4j}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${org.apache.logging.log4j}</version>
         </dependency>
     </dependencies>
 </project>
