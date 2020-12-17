@@ -1,38 +1,42 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>java.core.adam</groupId>
+    <groupId>com.java</groupId>
     <artifactId>LearnJava</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>LearnJava</name>
-    <url>http://maven.apache.org</url>
+    <url>https://www.java.com/</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.version>3.8.1</maven.compiler.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.surefire.version>2.22.2</maven.surefire.version>
+        <maven.surefire.version>3.0.0-M5</maven.surefire.version>
         <aspectjweaver.version>1.9.5</aspectjweaver.version>
         <aspectj.version>1.8.10</aspectj.version>
         <allure.plugin.version>2.10.0</allure.plugin.version>
-        <junit.version>4.13.1</junit.version>
-        <assertj.version>3.13.2</assertj.version>
         <allureJunit4.version>2.13.1</allureJunit4.version>
+        <junit.version>4.13.1</junit.version>
+<!--        <assertj.version>3.18.1</assertj.version>-->
         <slfrj.api.version>2.0.0-alpha1</slfrj.api.version>
         <slf4j-log4j12.version>2.0.0-alpha1</slf4j-log4j12.version>
-        <io.rest-assured.version>4.2.0</io.rest-assured.version>
-        <io.github.bonigarcia.version>4.1.0</io.github.bonigarcia.version>
+        <io.rest-assured.version>4.3.3</io.rest-assured.version>
+        <org.json.version>20201115</org.json.version>
+        <com.fasterxml.jackson>2.12.0</com.fasterxml.jackson>
+        <org.apache.httpcomponents>4.4.14</org.apache.httpcomponents>
+        <io.github.bonigarcia.version>4.2.2</io.github.bonigarcia.version>
         <org.seleniumhq.selenium.version>3.141.59</org.seleniumhq.selenium.version>
-        <net.andreinc.mockneat.version>0.3.9</net.andreinc.mockneat.version>
-        <com.googlecode.json-simple>1.1.1</com.googlecode.json-simple>
-        <org.apache.httpcomponents>4.5.12</org.apache.httpcomponents>
+        <net.andreinc.mockneat.version>0.4.2</net.andreinc.mockneat.version>
+ <!--       <com.googlecode.json-simple>1.1.1</com.googlecode.json-simple>-->
         <org.apache.logging.log4j>2.14.0</org.apache.logging.log4j>
+
     </properties>
 
     <build>
         <plugins>
+            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -42,6 +46,7 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -79,104 +84,129 @@
 
     <repositories>
         <repository>
+            <id>maven</id>
+            <url>https://repo.maven.apache.org/maven2/</url>
+        </repository>
+        <repository>
             <id>jcenter</id>
             <url>https://jcenter.bintray.com/</url>
         </repository>
     </repositories>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <version>${io.rest-assured.version}</version>
-            <scope>test</scope>
+            <!--            <scope>test</scope>-->
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.rest-assured/json-path -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>json-path</artifactId>
             <version>${io.rest-assured.version}</version>
-            <scope>test</scope>
+            <!--            <scope>test</scope>-->
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.rest-assured/xml-path -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>xml-path</artifactId>
             <version>${io.rest-assured.version}</version>
-            <scope>test</scope>
+<!--            <scope>test</scope>-->
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.rest-assured/json-schema-validator -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>json-schema-validator</artifactId>
             <version>${io.rest-assured.version}</version>
-            <scope>test</scope>
+<!--            <scope>test</scope>-->
         </dependency>
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
-            <scope>test</scope>
+            <!--            <scope>test</scope>-->
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
 <!--        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>compile</scope>
-        </dependency>-->
-        <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>${assertj.version}</version>
-            <scope>test</scope>
-        </dependency>
+            &lt;!&ndash;            <scope>test</scope>&ndash;&gt;
+        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-junit4 -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit4</artifactId>
             <version>${allureJunit4.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slfrj.api.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>${slf4j-log4j12.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${org.seleniumhq.selenium.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>${io.github.bonigarcia.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/net.andreinc.mockneat/mockneat -->
         <dependency>
             <groupId>net.andreinc.mockneat</groupId>
             <artifactId>mockneat</artifactId>
             <version>${net.andreinc.mockneat.version}</version>
         </dependency>
-        <dependency>
+        <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+<!--        <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
             <version>${com.googlecode.json-simple}</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpcore -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
+            <artifactId>httpcore</artifactId>
             <version>${org.apache.httpcomponents}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
             <version>${org.apache.logging.log4j}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>${org.apache.logging.log4j}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${org.json.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${com.fasterxml.jackson}</version>
         </dependency>
     </dependencies>
 </project>
