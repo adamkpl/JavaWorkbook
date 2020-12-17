@@ -12,6 +12,8 @@ You should take a look at the account's main page for other repositories where I
 
 No particular order.
 
+**com.herokuapp.restfulbooker** - Created on 02.2020. REST tests.
+
 **com.typicode.jsonplaceholder** - Created on 02.2020. REST tests.
 
 **com.automationpractice** - Created on 09.2019. Selenium WebDriver automation tests. [Site under test is an E-commerce store > automationpractice.com](http://automationpractice.com/)
