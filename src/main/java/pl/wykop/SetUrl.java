@@ -17,11 +17,16 @@ public class SetUrl {
 		Scanner voteBury = new Scanner(System.in);
 		String prefix = voteBury.nextLine();
 
-		if (prefix.substring(0, 1).equalsIgnoreCase("w")) {
-			return url + "#voters";
-		} else if (prefix.substring(0, 1).equalsIgnoreCase("z")) {
-			return url + "#votersBury";
-		} else {
+		try {
+			if (prefix.substring(0, 1).equalsIgnoreCase("w")) {
+				return url + "#voters";
+			} else if (prefix.substring(0, 1).equalsIgnoreCase("z")) {
+				return url + "#votersBury";
+			} else {
+				System.out.println("Brak poprawnej odpowiedzi [W]ykopali lub [Z]akopali. Wybieram opcję domyślną: [W]ykopali");
+				return url + "#voters";
+			}
+		} catch (StringIndexOutOfBoundsException e) {
 			System.out.println("Brak poprawnej odpowiedzi [W]ykopali lub [Z]akopali. Wybieram opcję domyślną: [W]ykopali");
 			return url + "#voters";
 		}
