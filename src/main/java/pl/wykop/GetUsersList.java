@@ -12,7 +12,6 @@ public class GetUsersList {
 		String url = SetUrl.setUrl();
 
 		// Otwórz przeglądarkę. Domyślnie Google Chrome
-		System.out.println("Uruchamiam przeglądarkę...");
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 
@@ -23,11 +22,9 @@ public class GetUsersList {
 		CookieSetter.setCloseAllPopupsCookies(driver);
 
 		// Otwórz stronę znaleziska
-		System.out.println("Otwieram stronę znaleziska...");
 		driver.get(url);
 
 		// Wydrukuj całą listę użytkowników na konsoli
-
 		VotesContainer.getVotes(driver);
 
 		// Zamknij przeglądarkę

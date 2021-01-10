@@ -18,7 +18,6 @@ public class VotesContainer {
 		List<WebElement> allUsers = driver.findElements(By.xpath(PageObject.USERS_LIST));
 
 		// Wydrukuj całą listę na konsoli
-		System.out.println("Drukuję listę...");
 		System.out.println("Ilość użytkowników na liście: \n" + allUsers.size());
 		System.out.println("---------------UŻYTKOWNICY---------------");
 
