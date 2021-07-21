@@ -1,5 +1,6 @@
 package workbook;
 
+import java.text.DecimalFormat;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -43,7 +44,7 @@ public class GuessANumberGame {
 
             System.out.println("Play again? [Y/N]");
             Scanner quit = new Scanner(System.in);
-            String quitAnswer = quit.nextLine().substring(0).toLowerCase();
+            String quitAnswer = quit.nextLine().toLowerCase();
 
             //todo assert if input is Y/N - if not, repeat the question
             finish = !quitAnswer.equals("y");
@@ -55,7 +56,8 @@ public class GuessANumberGame {
         System.out.println("Correct: " + triesValid);
         System.out.println("Incorrect: " + triesInvalid);
         double successRatio = ((float) triesValid / (float) tries) * 100;
-        System.out.println("Success ratio: " + successRatio + "%");
+        DecimalFormat df = new DecimalFormat("#");
+        System.out.println("Success ratio: " + df.format(successRatio) + "%");
 
     }
 
